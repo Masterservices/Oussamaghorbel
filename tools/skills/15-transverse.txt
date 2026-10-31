@@ -1,0 +1,26 @@
+# topics: consulting
+## Compétences transverses
+Communication écrite et orale | Written and verbal communication | التواصل الكتابي والشفهي | Деловая коммуникация | communication ecrite;communication orale;communication skills;excellent communicator;коммуникабельн;деловая переписка;مهارات التواصل | c | x
+Esprit d'analyse | Analytical thinking | التفكير التحليلي | Аналитическое мышление | esprit d'analyse;capacite d'analyse;analytical skills;analytical thinking;аналитическ склад;аналитическое мышление;التفكير التحليلي | c | x | data
+Résolution de problèmes | Problem solving | حل المشكلات | Решение проблем | resolution de problemes;problem solving;problem-solving;решение проблем;حل المشكلات | c | x
+Autonomie | Autonomy | الاستقلالية | Самостоятельность | autonomie;autonome;self-starter;work independently;самостоятельн;الاستقلالية | c | x
+Travail en équipe | Teamwork | العمل الجماعي | Работа в команде | travail en equipe;esprit d'equipe;teamwork;team player;работа в команде;العمل الجماعي | c | x
+Organisation · gestion du temps | Organisation · time management | التنظيم وإدارة الوقت | Тайм-менеджмент | organise;rigueur;sens de l'organisation;time management;gestion du temps;организованност;тайм-менеджмент;إدارة الوقت | c | x | project
+Adaptabilité | Adaptability | القدرة على التكيف | Адаптивность | adaptabilite;adaptability;flexibilite;flexibility;стрессоустойчив;гибкост;التكيف | f | x
+Créativité | Creativity | الإبداع | Креативность | creativite;creative;creativity;креатив;الإبداع | f | x | marketing
+Orientation client | Customer focus | التوجه نحو العميل | Клиентоориентированность | orientation client;customer focus;customer-centric;sens du service;клиентоориентирован | f | x | business
+Esprit d'entreprendre | Entrepreneurial mindset | روح المبادرة | Предпринимательское мышление | esprit d'entreprendre;entrepreneurial;proactive;proactif;force de proposition;инициативн;المبادرة | f | x | business
+Gestion du stress | Stress management | إدارة الضغط | Стрессоустойчивость | gestion du stress;stress management;sous pression;under pressure;работа в условиях стресса | f | x
+Sens de la négociation interculturelle | Cross-cultural skills | التواصل بين الثقافات | Межкультурная коммуникация | interculturel;multiculturel;cross-cultural;intercultural;multicultural;межкультурн;بين الثقافات | f | x | business
+Esprit de synthèse | Synthesis skills | القدرة على التلخيص | Умение обобщать | esprit de synthese;capacite de synthese;synthesis;обобщ | f | x
+Mobilité · déplacements | Willingness to travel | الاستعداد للتنقل | Готовность к командировкам | deplacements;mobilite;willing to travel;travel required;командировк;التنقل | s | x
+## Langues
+Anglais | English | الإنجليزية | Английский язык | anglais;english;английск;الإنجليزية | c | l
+Français | French | الفرنسية | Французский язык | francais;french;французск;الفرنسية | c | l
+Arabe | Arabic | العربية | Арабский язык | arabe;arabic;арабск;العربية | f | l
+Russe | Russian | الروسية | Русский язык | russe;russian;русск;الروسية | f | l
+Allemand | German | الألمانية | Немецкий язык | allemand;german;немецк;الألمانية | f | l
+Espagnol | Spanish | الإسبانية | Испанский язык | espagnol;spanish;испанск;الإسبانية | f | l
+Italien | Italian | الإيطالية | Итальянский язык | italien;italian;итальянск;الإيطالية | s | l
+Turc | Turkish | التركية | Турецкий язык | turc;turkish;турецк;التركية | s | l
+Chinois | Chinese | الصينية | Китайский язык | chinois;chinese;mandarin;китайск;الصينية | s | l

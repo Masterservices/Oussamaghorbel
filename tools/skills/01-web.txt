@@ -1,0 +1,81 @@
+# topics: web
+## Langages
+JavaScript | = | = | = | javascript;ecmascript;es6;vanilla js | c | o
+TypeScript | = | = | = | typescript | c | o
+HTML · CSS | HTML · CSS | = | = | html5;css3;html;css | c | o
+PHP | = | = | = | php;php8 | f | o
+Python | = | = | = | python;django;flask;fastapi | f | o | data
+Java | = | = | = | java;spring boot;jee;j2ee | f | o
+C# · .NET | = | = | = | c#;.net;dotnet;asp.net | f | o
+Go | = | = | = | golang | s | o
+Ruby on Rails | = | = | = | ruby on rails;ruby;rails | s | o
+Kotlin | = | = | = | kotlin | s | o
+Swift | = | = | = | swift;swiftui | s | o
+## Front-end
+React | = | = | = | react;react.js;reactjs | c | o
+Next.js | = | = | = | next.js;nextjs | f | o
+Vue.js | = | = | = | vue.js;vuejs;nuxt | f | o
+Angular | = | = | = | angular | f | o
+Svelte | = | = | = | svelte;sveltekit | s | o
+Tailwind CSS | = | = | = | tailwind | f | o
+Bootstrap | = | = | = | bootstrap | f | o
+Sass | = | = | = | sass;scss | s | o
+Redux | = | = | = | redux;zustand | s | o
+Responsive design | = | تصميم متجاوب | Адаптивная вёрстка | responsive;mobile first;адаптивн | c | m
+Accessibilité web | Web accessibility | إمكانية الوصول | Доступность веб | accessibilite;accessibility;wcag;rgaa;a11y | f | n
+Performance web | Web performance | أداء الويب | Производительность сайта | performance web;web performance;lighthouse;pagespeed | f | m
+## Back-end
+Node.js | = | = | = | node.js;nodejs;express;nestjs | c | o
+API REST | REST API | واجهة برمجة REST | REST API | api rest;rest api;restful;api | c | m
+GraphQL | = | = | = | graphql | s | o
+Microservices | = | الخدمات المصغرة | Микросервисы | microservices;microservice;микросервис | s | m
+Laravel | = | = | = | laravel | f | o
+Symfony | = | = | = | symfony | f | o
+Authentification (OAuth, JWT) | Authentication (OAuth, JWT) | المصادقة | Аутентификация | oauth;jwt;authentification;authentication;sso | f | m
+WebSocket · temps réel | WebSocket · real time | الوقت الحقيقي | Реальное время | websocket;socket.io;temps reel;real-time | s | m
+## Bases de données
+SQL | = | = | = | sql;mysql;mariadb | c | o | data
+PostgreSQL | = | = | = | postgresql;postgres | f | o | data
+MongoDB | = | = | = | mongodb;mongo | f | o
+Redis | = | = | = | redis | s | o
+Supabase | = | = | = | supabase | s | o
+Firebase | = | = | = | firebase;firestore | f | o
+Prisma · ORM | = | = | = | prisma;orm;sequelize;typeorm;doctrine | s | o
+Modélisation de données | Data modelling | نمذجة البيانات | Моделирование данных | modelisation de donnees;data modeling;data modelling;merise;uml | f | m | data
+## DevOps et cloud
+Git | = | = | = | git;github;gitlab;bitbucket | c | o
+CI/CD | = | = | = | ci/cd;integration continue;continuous integration;github actions;gitlab ci;jenkins | f | m
+Docker | = | = | = | docker;conteneur;container | f | o
+Kubernetes | = | = | = | kubernetes;k8s | s | o
+AWS | = | = | = | aws;amazon web services;ec2;lambda | f | o
+Microsoft Azure | = | = | = | azure | f | o
+Google Cloud | = | = | = | google cloud;gcp | s | o
+Vercel · Netlify | = | = | = | vercel;netlify | s | o
+Linux | = | = | = | linux;ubuntu;debian;bash;shell | f | o
+Nginx · Apache | = | = | = | nginx;apache | s | o
+Terraform | = | = | = | terraform;infrastructure as code | s | o
+## Qualité logicielle
+Tests (Jest, Cypress) | Testing (Jest, Cypress) | الاختبارات | Тестирование | jest;cypress;playwright;tests unitaires;unit test;unit testing;tdd;vitest | f | m
+Revue de code | Code review | مراجعة الشيفرة | Код-ревью | revue de code;code review;код-ревью | f | m
+Architecture logicielle | Software architecture | هندسة البرمجيات | Архитектура ПО | architecture logicielle;software architecture;design patterns;clean architecture | f | m
+Sécurité applicative (OWASP) | Application security (OWASP) | أمن التطبيقات | Безопасность приложений | owasp;securite applicative;application security;appsec | s | n
+Documentation technique | Technical documentation | التوثيق التقني | Техническая документация | documentation technique;technical documentation;swagger;openapi | f | m
+## Mobile
+Android | = | = | = | android | f | o
+iOS | = | = | = | ios | f | o
+React Native | = | = | = | react native | f | o
+Flutter | = | = | = | flutter;dart | f | o
+PWA | = | = | = | pwa;progressive web app | s | m
+## CMS et e-commerce
+WordPress | = | = | = | wordpress;woocommerce;elementor | c | o | seo,marketing
+Shopify | = | = | = | shopify | f | o | marketing
+PrestaShop | = | = | = | prestashop | s | o
+Magento | = | = | = | magento;adobe commerce | s | o
+Webflow | = | = | = | webflow | s | o | design
+Headless CMS | = | = | = | headless;strapi;contentful;sanity | s | o
+Intégration de paiement | Payment integration | دمج الدفع الإلكتروني | Интеграция платежей | stripe;paypal;paiement en ligne;payment gateway;эквайринг | s | m | business
+## Divers web
+WinDev | = | = | = | windev;webdev | s | o
+C++ | = | = | = | c++ | s | o | engineering
+Low-code · no-code | = | المنصات منخفضة الشيفرة | Low-code | low-code;no-code;nocode;bubble;glide | s | o
+Méthodes agiles (dev) | Agile development | التطوير الرشيق | Гибкая разработка | sprint;user story;user stories | f | m | project

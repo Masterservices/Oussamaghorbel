@@ -1,0 +1,37 @@
+# topics: sante
+## Santé
+Soins infirmiers | Nursing | التمريض | Сестринское дело | infirmier;infirmiere;nursing;nurse;soins;медсестр;التمريض | c | t
+Tourisme médical | Medical tourism | السياحة العلاجية | Медицинский туризм | tourisme medical;medical tourism;медицинский туризм;السياحة العلاجية | s | t | hotellerie,business
+Gestion d'établissement de santé | Healthcare management | تسيير المؤسسات الصحية | Управление медучреждением | gestion hospitaliere;healthcare management;administration hospitaliere;управление клиникой | s | t | project
+Pharmacie · industrie pharmaceutique | Pharmaceuticals | الصيدلة | Фармацевтика | pharmacie;pharmaceutique;pharmaceutical;pharma;gmp;bpf;фармац;الصيدلة | s | t | quality
+Affaires réglementaires | Regulatory affairs | الشؤون التنظيمية | Регуляторные вопросы | affaires reglementaires;regulatory affairs;amm;dispositifs medicaux;medical devices;регистрац | s | t | juridique
+Délégué médical | Medical sales | المندوب الطبي | Медицинский представитель | delegue medical;visiteur medical;medical representative;медицинский представитель;مندوب طبي | s | t | business
+Premiers secours | First aid | الإسعافات الأولية | Первая помощь | premiers secours;first aid;sst;pse1;первая помощь;الإسعافات الأولية | s | n
+# topics: hotellerie
+## Hôtellerie et tourisme
+Accueil clientèle | Guest relations | استقبال الحرفاء | Работа с гостями | accueil;reception;front office;guest relations;receptionniste;ресепшн;الاستقبال | c | t
+Réservations (Opera, Booking) | Reservations (Opera, Booking) | الحجوزات | Бронирование | reservation;reservations;booking;opera pms;channel manager;amadeus;бронирован;الحجز | f | o
+Revenue management | = | إدارة الإيرادات | Управление доходами | revenue management;yield management;revpar;ревеню | s | m | finance
+Restauration · service | Food and beverage service | المطاعم والخدمة | Ресторанный сервис | restauration;food and beverage;f&b;serveur;barista;ресторан;المطاعم | f | t
+Cuisine | Culinary arts | الطبخ | Кулинария | cuisine;cuisinier;chef de cuisine;commis;culinary;повар;кулинар;الطبخ | f | t
+Tourisme · agence de voyages | Tourism · travel agency | السياحة ووكالات الأسفار | Туризм | tourisme;tourism;agence de voyages;travel agency;tour operator;туризм;турагент;السياحة | f | t | business
+Guide interprète | Tour guide | المرشد السياحي | Гид-переводчик | guide touristique;tour guide;guide interprete;гид;المرشد السياحي | s | t | education
+# topics: juridique
+## Droit
+Droit des affaires | Business law | قانون الأعمال | Корпоративное право | droit des affaires;business law;corporate law;droit des societes;корпоративное право;قانون الأعمال | f | t | business
+Rédaction de contrats | Contract drafting | صياغة العقود | Составление договоров | redaction de contrats;contract drafting;contrats;contracts;договор;العقود | c | t
+Conformité · compliance | Compliance | الامتثال | Комплаенс | conformite;compliance;kyc;aml;lcb-ft;комплаенс;الامتثال | f | t | finance
+RGPD · protection des données | GDPR · data protection | حماية المعطيات الشخصية | Защита персональных данных | rgpd;gdpr;protection des donnees;data protection;dpo;персональных данных;حماية المعطيات | f | n | web
+Propriété intellectuelle | Intellectual property | الملكية الفكرية | Интеллектуальная собственность | propriete intellectuelle;intellectual property;marques;trademark;интеллектуальная собственность;الملكية الفكرية | s | t
+Contentieux | Litigation | النزاعات | Судебная практика | contentieux;litigation;arbitrage;arbitration;судебн;النزاعات | s | t
+Veille juridique | Legal watch | اليقظة القانونية | Мониторинг законодательства | veille juridique;legal watch;мониторинг законодательства | s | m
+Droit international et migrations | International and immigration law | القانون الدولي والهجرة | Миграционное право | droit international;immigration;visa;visas;titre de sejour;миграционн;виза;التأشيرات | s | t | education
+# topics: education
+## Éducation et formation
+Enseignement | Teaching | التدريس | Преподавание | enseignement;enseignant;teaching;teacher;professeur;преподава;учитель;التدريس | c | t
+Formation d'adultes | Adult training | تكوين الكبار | Обучение взрослых | formateur;formatrice;trainer;formation d'adultes;adult learning;тренер;المكون | c | t | rh
+Ingénierie pédagogique | Instructional design | الهندسة البيداغوجية | Методология обучения | ingenierie pedagogique;instructional design;conception pedagogique;методист;методическ;البيداغوجيا | f | m
+E-learning (LMS) | = | التعليم الإلكتروني | Дистанционное обучение | e-learning;elearning;lms;moodle;articulate;mooc;дистанционн;التعليم عن بعد | f | o | web
+Enseignement des langues (FLE) | Language teaching | تعليم اللغات | Преподавание иностранных языков | fle;tefl;celta;enseignement des langues;language teaching;рки;تعليم اللغات | s | t
+Orientation · conseil aux étudiants | Student advising | التوجيه الجامعي | Консультирование абитуриентов | orientation;conseiller d'orientation;student advisor;admissions;etudes a l'etranger;study abroad;поступлени;абитуриент;الدراسة بالخارج | s | t | consulting
+Prise de parole en public | Public speaking | الخطابة | Публичные выступления | prise de parole;public speaking;conferencier;speaker;публичные выступления;الخطابة | f | x

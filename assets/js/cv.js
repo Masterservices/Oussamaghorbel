@@ -190,9 +190,32 @@
     if (T && T.extra && T.extra.length) {
       box.appendChild(el("div", { class: "skillgrp" }, [
         el("h3", { text: dict()["cv.extraSkills"] }),
-        el("ul", null, T.extra.map(function (s) { return el("li", { text: s }); }))
+        el("ul", null, T.extra.map(function (s) { return el("li", { text: extraLabel(s) }); }))
       ]));
     }
+  }
+
+  // Compétences ajoutées dans le générateur : traduites avec le dictionnaire (chargé seulement dans ce cas).
+  // Une compétence absente du dictionnaire (saisie libre) reste telle quelle.
+  var SKILL_NAMES = null;
+  function extraLabel(s) {
+    var e = SKILL_NAMES && SKILL_NAMES[s];
+    return e ? e[LANGS.indexOf(state.lang)] || s : s;
+  }
+  if (T && T.extra && T.extra.length) {
+    var src = document.querySelector('script[src*="content.js"]');
+    var tag = document.createElement("script");
+    tag.src = src.getAttribute("src").replace("content.js", "skills-dict.js");
+    tag.onload = function () {
+      var D = window.SKILLS_DICT;
+      if (!D) return;
+      SKILL_NAMES = {};
+      var byId = {};
+      D.skills.forEach(function (x) { SKILL_NAMES[x.l[0]] = x.l; byId[x.id] = x.l; });
+      Object.keys(D.aliases || {}).forEach(function (a) { if (byId[D.aliases[a]]) SKILL_NAMES[a] = byId[D.aliases[a]]; });
+      renderSkills();
+    };
+    document.head.appendChild(tag);
   }
 
   function renderHighlights() {

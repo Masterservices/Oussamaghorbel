@@ -75,6 +75,16 @@ le site et le CV se mettent à jour ensemble. Toujours changer `updated` (date a
   à chaque clic (`CV_GENERATOR.more` des thèmes dominants, puis tous les thèmes repérés, puis ceux du profil de départ),
   avec « Je l'ai » ; elles ne changent pas la note. Tout libellé de `expected` ou `more` doit exister dans
   `requirements`. Le générateur ne cherche rien sur le web.
+- Dictionnaire de compétences (base du futur SaaS) : sources `tools/skills/*.txt` (une ligne par compétence :
+  libellés fr/en/ar/ru, motifs sans accents, niveau `c|f|s`, catégorie, thèmes ; format dans `tools/skills/README.md`),
+  compilées par `node tools/build-skills.mjs` dans `assets/js/skills-dict.js` (fichier généré, ~450 fiches, chargé
+  par le générateur et, seulement si le lien contient `plus=`, par `cv.js` pour traduire les compétences ajoutées).
+  Le script fusionne `CV_GENERATOR.requirements`, refuse un thème absent de `CV_GENERATOR.topics` ou un libellé
+  de `expected`/`more` introuvable, et retire les motifs trop généraux (liste `STOP`). Les suggestions
+  « Souvent attendu » ajoutent les compétences courantes du thème ; « Chercher plus » commence par les compétences
+  liées à celles de l'annonce. Les compétences transverses pèsent moitié moins dans la note. 22 thèmes, dont
+  finance, rh, logistique, design, industrie, btp, sante, hotellerie, juridique, education (aucune expérience
+  d'Oussama n'y est rattachée : ils servent aux suggestions et à la note).
 - Historique du générateur : `localStorage` clé `og-cv-history` (100 entrées max : poste, annonce, profil,
   langue, compétences ajoutées, réglages, note, lien), avec réouverture pour modifier, suppression, export et
   import JSON. Il reste dans le navigateur d'Oussama ; l'export sert de sauvegarde ou de transfert.

@@ -1,0 +1,42 @@
+# topics: project
+## Pilotage
+Gestion de projet | Project management | إدارة المشاريع | Управление проектами | gestion de projet;project management;chef de projet;project manager;управление проект;руководитель проект;إدارة المشاريع | c | t
+Planification · planning | Planning · scheduling | التخطيط | Планирование | planification;planning;diagramme de gantt;gantt;планирован;التخطيط | c | m
+Budget | Budget management | إدارة الميزانية | Управление бюджетом | budget;budgetaire;suivi budgetaire;budget management;бюджет;الميزانية | c | t | finance
+Gestion des risques | Risk management | إدارة المخاطر | Управление рисками | gestion des risques;risk management;управление рисками;إدارة المخاطر | f | m | quality
+Pilotage de la performance | Performance management | إدارة الأداء | Управление эффективностью | pilotage;performance management;okr | f | m
+Coordination d'équipes | Team coordination | تنسيق الفرق | Координация команд | coordination;coordinat;transverse;cross-functional;координац | c | x
+Gestion des parties prenantes | Stakeholder management | إدارة أصحاب المصلحة | Работа со стейкхолдерами | parties prenantes;stakeholder;стейкхолдер | f | m
+Cahier des charges | Specifications | دفتر الشروط | Техническое задание | cahier des charges;specifications;expression de besoin;requirements;техническое задание;тз;دفتر الشروط | f | m | engineering
+Gestion du changement | Change management | إدارة التغيير | Управление изменениями | conduite du changement;gestion du changement;change management;управление изменениями;إدارة التغيير | f | m | consulting,rh
+PMO | = | مكتب إدارة المشاريع | PMO | pmo;portefeuille de projets;portfolio management | s | t
+## Méthodes
+Agile · Scrum | = | المنهجية الرشيقة | Agile · Scrum | agile;scrum;scrum master;product owner;аджайл;скрам | c | m | web
+Kanban | = | = | Канбан | kanban;канбан | f | m
+Cycle en V · Waterfall | V-model · Waterfall | النموذج الشلالي | Каскадная модель | cycle en v;waterfall;каскадн | s | m
+PMP · Prince2 | = | = | = | pmp;prince2;pmi;ipma | f | n
+SAFe | = | = | = | safe agile;scaled agile | s | n
+Gestion de produit | Product management | إدارة المنتج | Управление продуктом | product management;product manager;chef de produit;roadmap;backlog;продакт;управление продуктом | f | t | web
+## Outils
+Jira | = | = | = | jira;confluence | c | o | web
+Trello | = | = | = | trello | f | o
+Asana | = | = | = | asana | s | o
+Monday.com | = | = | = | monday | f | o
+Notion | = | = | = | notion.so;outil notion;notion app | f | o
+ClickUp | = | = | = | clickup | s | o
+MS Project | = | = | = | ms project;microsoft project;primavera | f | o | btp
+Microsoft Teams · Slack | = | = | = | teams;slack | f | o
+# topics: consulting
+## Conseil
+Conseil en stratégie | Strategy consulting | الاستشارات الاستراتيجية | Стратегический консалтинг | conseil en strategie;strategy consulting;strategie d'entreprise;corporate strategy;стратегический консалтинг | f | t | business
+Conseil en organisation | Organisational consulting | استشارات التنظيم | Организационный консалтинг | conseil en organisation;organisational;organizational;reorganisation;организационн | f | t
+Audit organisationnel | Organisational audit | التدقيق التنظيمي | Организационный аудит | audit organisationnel;audit;diagnostic;diagnostic organisationnel;аудит;التدقيق | c | m
+Cartographie des processus | Process mapping | رسم خرائط العمليات | Описание бизнес-процессов | cartographie des processus;process mapping;bpmn;processus metier;business process;бизнес-процесс;العمليات | f | m | erp,quality
+Amélioration des processus | Process improvement | تحسين العمليات | Оптимизация процессов | amelioration des processus;process improvement;optimisation des processus;оптимизация процессов | f | m | quality
+Analyse des besoins | Needs analysis | تحليل الاحتياجات | Анализ потребностей | analyse des besoins;needs analysis;recueil des besoins;business analysis;business analyst;бизнес-анализ;تحليل الاحتياجات | f | m | erp
+Benchmark | = | المقارنة المرجعية | Бенчмаркинг | benchmark;benchmarking;бенчмарк | f | m
+Animation d'ateliers | Workshop facilitation | تسيير ورشات العمل | Фасилитация | animation d'ateliers;facilitation;workshop;atelier;фасилитац | f | x
+Rédaction de rapports | Report writing | كتابة التقارير | Подготовка отчётов | rapports;report writing;note de synthese;синтез;отчет | f | x
+PowerPoint | = | = | = | powerpoint;presentations;slides | c | o
+Accompagnement des PME | SME advisory | مرافقة المؤسسات الصغيرة والمتوسطة | Сопровождение МСП | pme;sme;tpe;accompagnement;малого и среднего бизнеса;المؤسسات الصغيرة | f | t | business
+Gestion de la qualité de service | Service quality management | جودة الخدمات | Качество обслуживания | qualite de service;service quality;satisfaction client;nps | s | m | quality

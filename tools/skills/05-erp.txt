@@ -1,0 +1,28 @@
+# topics: erp
+## ERP
+ERP | = | نظام تخطيط موارد المؤسسة | ERP | erp;progiciel de gestion;erp-систем | c | o
+Odoo | = | = | = | odoo;openerp | f | o
+SAP | = | = | = | sap;sap s/4hana;s/4hana;sap mm;sap sd;sap fi | f | o | finance,logistique
+Microsoft Dynamics | = | = | = | dynamics 365;dynamics;navision | f | o
+Sage | = | = | = | sage;sage 100;sage x3 | f | o | finance
+1C | = | = | 1С | 1c;1с;1с:предприятие | s | o | finance
+Dolibarr | = | = | = | dolibarr | s | o
+Oracle | = | = | = | oracle;oracle ebs;netsuite | s | o
+Paramétrage ERP | ERP configuration | إعداد أنظمة ERP | Настройка ERP | parametrage;configuration erp;customisation;customization;настройка erp | f | t
+Déploiement ERP | ERP implementation | تطبيق أنظمة ERP | Внедрение ERP | deploiement erp;implementation erp;erp implementation;integration erp;внедрение erp;внедрение | f | t | project
+## Transformation digitale
+Transformation digitale | Digital transformation | التحول الرقمي | Цифровая трансформация | transformation digitale;transformation numerique;digital transformation;digitalisation;цифровая трансформац;цифровизац;التحول الرقمي;رقمنة | c | t | consulting
+Automatisation (n8n, Zapier…) | Automation (n8n, Zapier…) | الأتمتة | Автоматизация (n8n, Zapier) | n8n;zapier;make.com;automatisation;automation;rpa;power automate;автоматизац;أتمتة | f | o | ai
+Power Platform | = | = | = | power apps;power platform;sharepoint | s | o
+Intégration de systèmes (API) | Systems integration | تكامل الأنظمة | Интеграция систем | integration de systemes;systems integration;interfacage;edi;интеграц | f | t | web
+Migration de données | Data migration | ترحيل البيانات | Миграция данных | migration de donnees;data migration;reprise de donnees;миграция данных | s | t | data
+Formation des utilisateurs | User training | تدريب المستخدمين | Обучение пользователей | formation des utilisateurs;user training;key users;обучение пользователей | f | x | education
+Support fonctionnel | Functional support | الدعم الوظيفي | Функциональная поддержка | support fonctionnel;support applicatif;helpdesk;help desk;техподдержк;поддержка пользователей | f | t
+Gestion électronique de documents | Document management (GED) | إدارة الوثائق الإلكترونية | Электронный документооборот | ged;gestion documentaire;document management;эдо;документооборот | s | o
+## Systèmes d'information
+Systèmes d'information | Information systems | نظم المعلومات | Информационные системы | systeme d'information;systemes d'information;information systems;dsi;информационн систем;نظم المعلومات | f | t
+Administration systèmes et réseaux | Systems and network administration | إدارة الأنظمة والشبكات | Системное администрирование | administration systeme;sysadmin;reseaux;network;active directory;системн администр;الشبكات | f | t | web
+Cybersécurité | Cybersecurity | الأمن السيبراني | Кибербезопасность | cybersecurite;cybersecurity;securite informatique;iso 27001;кибербезопасн;информационная безопасность;الأمن السيبراني | f | t | juridique
+ITIL | = | = | = | itil;itsm;servicenow | s | n
+Microsoft 365 | = | = | = | microsoft 365;office 365;outlook | c | o
+Google Workspace | = | = | = | google workspace;google sheets;google docs;gmail | f | o

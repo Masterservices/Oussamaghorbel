@@ -1,0 +1,30 @@
+# topics: textile
+## Conception et modélisme
+Patronage | Pattern making | صنع الباترونات | Конструирование одежды | patronage;pattern making;patternmaking;modelisme;modeliste;лекал;конструктор одежды;باترون | c | t
+Gradation | Grading | تدريج المقاسات | Градация лекал | gradation;grading;gradation des tailles;градац | f | t
+Lectra | = | = | = | lectra;modaris;diamino;kaledo | c | o
+Gerber | = | = | = | gerber;accumark | f | o
+CLO 3D | = | = | = | clo 3d;clo3d;browzwear;vstitcher | f | o | design
+Optitex | = | = | = | optitex | s | o
+Fiche technique | Tech pack | البطاقة التقنية | Техническое описание модели | fiche technique;tech pack;techpack;dossier technique;техническое описание;تقنية | c | t
+Stylisme · design de mode | Fashion design | تصميم الأزياء | Дизайн одежды | stylisme;styliste;fashion design;designer de mode;collection;дизайн одежды;تصميم الأزياء | f | t | design
+Prototypage · prototype | Sampling | العينات الأولية | Пошив образцов | prototype;sampling;echantillon;proto;образец;العينات | f | t
+Matières et tissus | Fabrics and materials | الأقمشة والخامات | Ткани и материалы | tissu;tissus;fabric;fabrics;matieres;textile technique;ткан;أقمشة | c | t
+Ennoblissement · teinture | Dyeing and finishing | الصباغة والتجهيز | Крашение и отделка | ennoblissement;teinture;dyeing;finishing;impression textile;крашен;صباغة | s | t
+Maille · tricotage | Knitting | التريكو | Трикотаж | maille;tricotage;tricot;knitting;knitwear;трикотаж;تريكو | s | t
+Tissage · filature | Weaving · spinning | النسيج والغزل | Ткачество и прядение | tissage;filature;weaving;spinning;ткачеств;прядени;الغزل | s | t
+Denim | = | = | Деним | denim;jean;jeans;delavage | s | t
+## Production et confection
+Confection | Garment manufacturing | الخياطة الصناعية | Швейное производство | confection;garment;apparel manufacturing;habillement;швейн;الملابس الجاهزة | c | t
+Méthodes · industrialisation | Industrial engineering | الطرق والتصنيع | Технология производства | methodes;industrialisation;bureau des methodes;industrial engineering;технолог;технология производства | f | t | quality,industrie
+Chronométrage · temps standards | Time study · SAM | دراسة الوقت | Хронометраж | chronometrage;temps standards;time study;sam;gsd;minutes standards;хронометраж | f | m | industrie
+Équilibrage de chaîne | Line balancing | موازنة خطوط الإنتاج | Балансировка линии | equilibrage;line balancing;equilibrage de chaine;балансировк | f | m | industrie
+Placement · coupe | Marker making · cutting | التفصيل والقص | Раскладка и раскрой | placement;matelassage;coupe;cutting;marker;раскрой;раскладк;القص | f | t
+Contrôle qualité textile | Textile quality control | مراقبة جودة النسيج | Контроль качества текстиля | controle qualite textile;aql;fabric inspection;контроль качества текстил | c | t | quality
+Sous-traitance · façon | Subcontracting (CMT) | المناولة | Давальческое производство | sous-traitance;facon;cmt;subcontracting;давальч;مناولة | f | t | logistique
+Sourcing textile | Textile sourcing | التوريد | Закупка тканей и поиск фабрик | sourcing;sourcing textile;поставщик;поиск фабрик;التوريد | f | t | logistique
+Gestion de production (GPAO) | Production planning (MRP) | تخطيط الإنتاج | Системы планирования (MRP) | gpao;mrp;planification de la production;production planning | f | t | erp,industrie
+Normes textiles (OEKO-TEX, REACH) | Textile standards (OEKO-TEX, REACH) | المعايير النسيجية | Текстильные стандарты | oeko-tex;reach;gots;bci;normes textiles;сертификац | s | n | quality
+Mode durable · RSE | Sustainable fashion · CSR | الموضة المستدامة | Устойчивая мода | mode durable;sustainable fashion;eco-conception;upcycling;rse;csr;устойчив | s | m
+Merchandising textile | Textile merchandising | الترويج التجاري | Мерчендайзинг | merchandiser;merchandising;product development;developpement produit;мерчендайз | f | t | business
+Maintenance machines à coudre | Sewing machine maintenance | صيانة آلات الخياطة | Ремонт швейного оборудования | mecanicien;machines a coudre;sewing machine;швейного оборудования | s | t | industrie
