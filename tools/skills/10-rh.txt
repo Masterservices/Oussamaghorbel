@@ -1,0 +1,19 @@
+# topics: rh
+## Recrutement
+Recrutement | Recruitment | التوظيف | Подбор персонала | recrutement;recruitment;talent acquisition;recruteur;recruiter;sourcing candidats;подбор персонала;рекрутинг;التوظيف | c | t
+Entretiens d'embauche | Interviewing | إجراء المقابلات | Проведение собеседований | entretiens;interviews;interviewing;собеседован;المقابلات | f | t
+Marque employeur | Employer branding | العلامة التجارية للمشغل | HR-бренд | marque employeur;employer branding;hr-бренд | s | m | marketing
+ATS · logiciels RH | ATS · HRIS | برمجيات الموارد البشرية | HR-системы | ats;sirh;hris;workday;successfactors;lucca;greenhouse | f | o | erp
+Onboarding | = | الإدماج | Адаптация персонала | onboarding;integration des nouveaux;адаптация персонала | f | m
+## Gestion RH
+Gestion administrative du personnel | HR administration | إدارة شؤون الموظفين | Кадровое делопроизводство | administration du personnel;gestion administrative;hr administration;кадров;شؤون الموظفين | c | t
+Droit du travail | Employment law | قانون الشغل | Трудовое право | droit du travail;employment law;labour law;code du travail;трудовое право;قانون الشغل | f | t | juridique
+GPEC · gestion des compétences | Workforce and skills planning | تخطيط الكفاءات | Управление компетенциями | gpec;gestion des competences;competency management;workforce planning;компетенц | f | m
+Formation · développement des compétences | Learning and development | التكوين وتطوير الكفاءات | Обучение и развитие персонала | formation professionnelle;plan de formation;learning and development;l&d;обучение персонала;التكوين | f | t | education
+Évaluation de la performance | Performance appraisal | تقييم الأداء | Оценка персонала | entretiens annuels;evaluation;performance review;appraisal;оценка персонала;تقييم الأداء | f | m
+Rémunération et avantages | Compensation and benefits | الأجور والمزايا | Компенсации и льготы | remuneration;compensation;benefits;c&b;компенсац;المكافآت | f | t | finance
+Relations sociales | Employee relations | العلاقات الاجتماعية | Трудовые отношения | relations sociales;employee relations;dialogue social;cse;трудовые отношения | s | t
+Management d'équipe | Team management | إدارة الفريق | Управление командой | management d'equipe;gestion d'equipe;team management;team lead;team leader;encadrement;manager une equipe;управление команд;руководство коллективом;إدارة الفريق | c | x | project
+Leadership | = | القيادة | Лидерство | leadership;лидерств;القيادة | c | x
+Coaching · mentorat | Coaching · mentoring | التوجيه والإرشاد | Коучинг и наставничество | coaching;mentorat;mentoring;tutorat;коучинг;наставничеств | f | x | education
+Qualité de vie au travail | Workplace wellbeing | جودة الحياة في العمل | Благополучие сотрудников | qvt;qualite de vie au travail;wellbeing;bien-etre au travail | s | m

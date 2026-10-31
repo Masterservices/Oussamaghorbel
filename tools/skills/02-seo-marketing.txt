@@ -1,0 +1,62 @@
+# topics: seo
+## SEO
+SEO | = | تحسين محركات البحث | SEO | seo;referencement naturel;referencement;search engine optimization;сео;поисковая оптимизация;продвижение сайтов;السيو | c | t | marketing
+SEO technique | Technical SEO | السيو التقني | Техническое SEO | seo technique;technical seo;crawl;indexation;indexing;robots.txt;sitemap | c | t
+SEO on-page | On-page SEO | السيو الداخلي | Внутренняя оптимизация | on-page;onpage;balises title;meta description;внутренняя оптимизация | f | t
+Netlinking | Link building | بناء الروابط | Линкбилдинг | netlinking;backlink;backlinks;link building;линкбилдинг;ссылочн | f | t
+SEO local | Local SEO | السيو المحلي | Локальное SEO | seo local;local seo;referencement local | f | t
+SEO international (hreflang) | International SEO (hreflang) | السيو الدولي | Международное SEO | hreflang;seo international;international seo;multilingue | s | t
+Recherche de mots-clés | Keyword research | البحث عن الكلمات المفتاحية | Подбор ключевых слов | mots-cles;mots cles;keyword research;keywords;semantique;ключевых слов;семантическ | c | m
+Données structurées (Schema.org) | Structured data (Schema.org) | البيانات المنظمة | Микроразметка | schema.org;donnees structurees;structured data;json-ld;микроразметк | f | t
+Core Web Vitals | = | = | = | core web vitals;lcp;cls | f | t | web
+Audit SEO | SEO audit | تدقيق السيو | SEO-аудит | audit seo;seo audit;seo-аудит | f | m
+## Outils SEO
+Google Search Console | = | = | = | search console;gsc | c | o
+Google Analytics | = | = | = | google analytics;analytics;ga4 | c | o | marketing,data
+Google Tag Manager | = | = | = | tag manager;gtm | f | o | marketing
+Semrush · Ahrefs | = | = | = | semrush;ahrefs;moz;majestic | f | o
+Screaming Frog | = | = | = | screaming frog | s | o
+Yandex Webmaster · Metrica | = | = | = | yandex;яндекс;метрика;вебмастер | s | o
+Looker Studio | = | = | = | looker studio;data studio | s | o | data
+## Contenu
+Rédaction de contenu | Content writing | كتابة المحتوى | Копирайтинг | redaction;copywriting;content writing;redacteur;blog;копирайт;рерайт;كتابة المحتوى | c | t | marketing
+Rédaction web SEO | SEO copywriting | الكتابة لمحركات البحث | SEO-копирайтинг | redaction web;seo copywriting;seo writing;seo-копирайт | f | t
+Stratégie de contenu | Content strategy | استراتيجية المحتوى | Контент-стратегия | strategie de contenu;content strategy;ligne editoriale;calendrier editorial;контент-стратег;контент-план | f | m | marketing
+Content marketing | = | تسويق المحتوى | Контент-маркетинг | content marketing;marketing de contenu;inbound;контент-маркетинг | f | m | marketing
+Relecture · correction | Proofreading | التدقيق اللغوي | Корректура | relecture;proofreading;correction orthographique;корректур | s | t
+Traduction · localisation | Translation · localisation | الترجمة والتوطين | Перевод и локализация | traduction;translation;localisation;localization;перевод;локализац;ترجمة | s | t | education
+# topics: marketing
+## Publicité en ligne
+Google Ads | = | = | = | google ads;adwords;sea;ppc;cpc | c | o | seo
+Facebook / Meta Ads | = | = | = | facebook ads;meta ads;instagram ads;business manager | c | o
+LinkedIn Ads | = | = | = | linkedin ads | f | o
+TikTok Ads | = | = | = | tiktok ads | s | o
+Yandex Direct | = | = | = | yandex direct;яндекс директ;директ | s | o
+Retargeting | = | إعادة الاستهداف | Ретаргетинг | retargeting;remarketing;ретаргетинг | f | m
+Gestion de budget média | Media budget management | إدارة ميزانية الإعلانات | Управление рекламным бюджетом | budget media;media buying;achat media;roas;cpa | f | m
+## Réseaux sociaux
+Réseaux sociaux | Social media | وسائل التواصل الاجتماعي | Социальные сети | reseaux sociaux;social media;smm;смм;соцсет;التواصل الاجتماعي | c | t
+Community management | = | إدارة المجتمعات | Комьюнити-менеджмент | community management;community manager;moderation;комьюнити | c | t
+Création de contenu vidéo (Reels, TikTok) | Short video content (Reels, TikTok) | محتوى الفيديو القصير | Создание видео (Reels) | reels;tiktok;shorts;contenu video;video content | f | t | design
+Marketing d'influence | Influencer marketing | التسويق عبر المؤثرين | Инфлюенс-маркетинг | influence;influenceur;influencer;блогер | f | m
+Meta Business Suite | = | = | = | meta business suite;creator studio | s | o
+## Stratégie marketing
+Stratégie digitale | Digital strategy | الاستراتيجية الرقمية | Цифровая стратегия | strategie digitale;digital strategy;strategie marketing;marketing strategy;маркетинговая стратегия | c | m | business
+Marketing digital | Digital marketing | التسويق الرقمي | Интернет-маркетинг | marketing digital;digital marketing;webmarketing;интернет-маркетинг;digital-маркетинг;التسويق الرقمي | c | t
+Étude de marché | Market research | دراسة السوق | Исследование рынка | etude de marche;market research;veille concurrentielle;competitive analysis;исследование рынка;دراسة السوق | f | m | business
+Branding · identité de marque | Branding | بناء العلامة التجارية | Брендинг | branding;identite de marque;brand identity;plateforme de marque;брендинг | f | m | design
+Growth marketing | = | تسويق النمو | Growth-маркетинг | growth;growth hacking;acquisition;funnel;entonnoir | f | m
+Persona · parcours client | Personas · customer journey | رحلة العميل | Портрет клиента | persona;parcours client;customer journey;cjm | f | m
+Lancement de produit | Product launch | إطلاق المنتجات | Запуск продукта | lancement de produit;product launch;go-to-market;вывод продукта | s | m | business
+Relations presse | Public relations | العلاقات العامة | PR и связи со СМИ | relations presse;relations publiques;public relations;communique de presse;пиар;العلاقات العامة | f | t
+Communication interne | Internal communication | الاتصال الداخلي | Внутренние коммуникации | communication interne;internal communication;внутренние коммуникац | s | t | rh
+Événementiel | Event management | تنظيم الفعاليات | Организация мероприятий | evenementiel;event management;salon;salons professionnels;мероприят;الفعاليات | f | t | hotellerie
+## Marketing automation et e-mail
+E-mailing | Email marketing | التسويق عبر البريد الإلكتروني | Email-маркетинг | emailing;e-mailing;email marketing;newsletter;mailchimp;brevo;sendinblue;рассылк | c | t
+Marketing automation | = | أتمتة التسويق | Автоматизация маркетинга | marketing automation;lead nurturing;scoring | f | m | ai
+HubSpot | = | = | = | hubspot | f | o | business
+A/B testing | = | اختبار A/B | A/B-тестирование | a/b test;ab testing;a/b-тест;split test | f | m | data
+CRO · optimisation de conversion | Conversion rate optimisation | تحسين معدل التحويل | Оптимизация конверсии | cro;taux de conversion;conversion rate;landing page;конверси | f | m
+## Analyse marketing
+Reporting marketing | Marketing reporting | تقارير التسويق | Маркетинговая аналитика | reporting marketing;marketing analytics;attribution;маркетинговая аналитик | f | m | data
+Google Business Profile | = | = | = | google business;google my business;fiche google | f | o | seo

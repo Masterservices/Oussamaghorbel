@@ -1,0 +1,33 @@
+# topics: business
+## Vente
+Prospection | Prospecting | التنقيب عن العملاء | Поиск клиентов | prospection;prospecting;lead generation;generation de leads;cold calling;phoning;поиск клиентов;холодные звонки;استقطاب العملاء | c | t
+Négociation | Negotiation | التفاوض | Переговоры | negociation;negotiation;переговор;التفاوض | c | x
+Techniques de vente | Sales techniques | تقنيات البيع | Техники продаж | techniques de vente;sales techniques;vente consultative;solution selling;spin;техники продаж;مهارات البيع | c | t
+Closing | = | إتمام الصفقات | Закрытие сделок | closing;closer;закрытие сделок | f | t
+Pipeline commercial | Sales pipeline | مسار المبيعات | Воронка продаж | pipeline;forecast;previsions de ventes;воронк | f | m
+Gestion de portefeuille clients | Account management | إدارة محفظة العملاء | Ведение клиентской базы | portefeuille clients;account management;account manager;fidelisation;ведение клиентов;клиентской базы | c | t
+Grands comptes | Key account management | كبار العملاء | Ключевые клиенты | grands comptes;key account;kam;ключевых клиент | f | t
+B2B | = | = | = | b2b | c | t
+B2C | = | = | = | b2c | f | t
+Vente en ligne · e-commerce | E-commerce | التجارة الإلكترونية | Электронная коммерция | e-commerce;ecommerce;vente en ligne;marketplace;интернет-магазин;маркетплейс;wildberries;ozon;التجارة الإلكترونية | f | t | marketing
+Retail · vente en magasin | Retail | البيع بالتجزئة | Розничная торговля | retail;vente en magasin;розничн;розница | f | t
+Service client | Customer service | خدمة العملاء | Обслуживание клиентов | service client;customer service;customer care;relation client;customer success;обслуживание клиентов;خدمة العملاء | c | t
+Appels d'offres | Tenders | المناقصات | Тендеры | appel d'offres;appels d'offres;tender;tenders;тендер;госзакуп;مناقصات | f | t | juridique
+## Développement
+Business development | = | تطوير الأعمال | Развитие бизнеса | business development;business developer;developpement commercial;развитие бизнеса;تطوير الأعمال | c | t
+Partenariats | Partnerships | الشراكات | Партнёрства | partenariat;partenariats;partnership;partnerships;партнерств;شراكات | f | t
+Export / international | Export / international | التصدير والتجارة الدولية | ВЭД и экспорт | export;international;commerce international;вэд;экспорт;التصدير | f | t | logistique
+Business plan | = | خطة العمل | Бизнес-план | business plan;plan d'affaires;бизнес-план;خطة عمل | f | m | finance
+Analyse de marché et concurrence | Market and competitor analysis | تحليل السوق والمنافسين | Анализ рынка и конкурентов | analyse de marche;analyse concurrentielle;competitor analysis;swot;анализ рынка;конкурент | f | m | marketing
+Pricing · politique tarifaire | Pricing | التسعير | Ценообразование | pricing;politique tarifaire;tarification;ценообразован;التسعير | f | m | finance
+Franchise · réseau de distribution | Distribution network | شبكات التوزيع | Дистрибуция | distribution;distributeurs;franchise;reseau de distribution;дистрибуц;дилер | s | t | logistique
+Levée de fonds | Fundraising | جمع التمويل | Привлечение инвестиций | levee de fonds;fundraising;investisseurs;pitch deck;venture capital;привлечение инвестиций | s | t | finance
+Entrepreneuriat · création d'entreprise | Entrepreneurship | ريادة الأعمال | Предпринимательство | entrepreneuriat;entrepreneurship;creation d'entreprise;startup;start-up;предприниматель;ريادة الأعمال | f | x
+## Outils commerciaux
+CRM | = | = | = | crm;gestion de la relation client | c | o | erp
+Salesforce | = | = | = | salesforce | f | o | erp
+HubSpot CRM | = | = | = | hubspot crm | s | o
+Pipedrive | = | = | = | pipedrive | s | o
+Bitrix24 · amoCRM | = | = | = | bitrix24;bitrix;amocrm;битрикс | s | o
+LinkedIn Sales Navigator | = | = | = | sales navigator;social selling | f | o
+Reporting · KPI | Reporting · KPIs | التقارير ومؤشرات الأداء | Отчётность и KPI | reporting;kpi;tableau de bord;dashboard;indicateurs;отчетност;مؤشرات الأداء | c | m | data,project

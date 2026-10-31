@@ -1,0 +1,23 @@
+# topics: design
+## Design graphique
+Photoshop | = | = | = | photoshop | c | o | marketing
+Illustrator | = | = | = | illustrator | c | o
+InDesign | = | = | = | indesign;mise en page;layout | f | o
+Canva | = | = | = | canva | c | o | marketing
+Suite Adobe | Adobe Creative Cloud | = | = | adobe;creative cloud;suite adobe | f | o
+Identité visuelle · logo | Visual identity · logo design | الهوية البصرية | Фирменный стиль | identite visuelle;visual identity;logo;charte graphique;фирменный стиль;логотип;الهوية البصرية | f | t | marketing
+Typographie | Typography | الطباعة الخطية | Типографика | typographie;typography;типографик | s | t
+Impression · PAO | Print and desktop publishing | الطباعة والنشر المكتبي | Полиграфия | pao;print;impression;prepresse;полиграф | s | t
+## UX et UI
+UX · UI | = | تجربة المستخدم وواجهته | UX/UI | ux;ui;ux/ui;ui/ux;user experience;user interface;experience utilisateur | c | t | web
+Figma | = | = | = | figma;figjam | c | o | web
+Maquettage · prototypage | Wireframing · prototyping | النماذج الأولية | Прототипирование | wireframe;wireframes;maquette;maquettage;prototypage;mockup;прототип | f | m
+Design system | = | نظام التصميم | Дизайн-система | design system;дизайн-систем;storybook | s | m | web
+Recherche utilisateur | User research | أبحاث المستخدمين | Исследование пользователей | user research;recherche utilisateur;tests utilisateurs;usability;ux research;юзабилити | f | m
+Sketch · Adobe XD | = | = | = | sketch;adobe xd | s | o
+## Vidéo et motion
+Montage vidéo | Video editing | مونتاج الفيديو | Видеомонтаж | montage video;video editing;monteur;premiere pro;final cut;davinci resolve;capcut;видеомонтаж;مونتاج | f | t | marketing
+Motion design | = | التصميم المتحرك | Моушн-дизайн | motion design;after effects;animation 2d;моушн | f | t
+Photographie | Photography | التصوير الفوتوغرافي | Фотография | photographie;photography;photographe;photo produit;фотограф;التصوير | s | t | marketing
+3D (Blender, Cinema 4D) | = | التصميم ثلاثي الأبعاد | 3D-моделирование | blender;cinema 4d;3ds max;maya;modelisation 3d;3d modeling;3d-моделир | s | o
+Rendu architectural | Architectural rendering | الإظهار المعماري | Архитектурная визуализация | rendu 3d;lumion;v-ray;vray;архитектурная визуализац | s | o | btp

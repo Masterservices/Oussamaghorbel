@@ -1,0 +1,14 @@
+# topics: logistique
+## Supply chain
+Supply chain | = | سلسلة الإمداد | Цепь поставок | supply chain;chaine logistique;цепь поставок;цепочка поставок;سلسلة الإمداد | c | t
+Gestion des stocks | Inventory management | إدارة المخزون | Управление запасами | gestion des stocks;inventory management;inventaire;stock management;управление запасами;склад;المخزون | c | t
+Achats · approvisionnement | Purchasing · procurement | المشتريات والتموين | Закупки | achats;acheteur;procurement;purchasing;buyer;approvisionnement;закупк;المشتريات | c | t | business
+Négociation fournisseurs | Supplier negotiation | التفاوض مع الموردين | Работа с поставщиками | negociation fournisseurs;supplier negotiation;gestion fournisseurs;supplier management;работа с поставщиками | f | t
+Prévision de la demande | Demand planning | التنبؤ بالطلب | Прогнозирование спроса | prevision de la demande;demand planning;forecast;s&op;прогнозирование спроса | f | m | data
+Entreposage (WMS) | Warehousing (WMS) | التخزين | Складская логистика | entreposage;entrepot;warehouse;warehousing;wms;складск;المستودعات | f | t
+Transport | = | النقل | Транспортная логистика | transport;tms;fret;freight;affretement;транспорт;перевозк;النقل | f | t
+Import-export · douane | Import-export · customs | الاستيراد والتصدير والجمارك | Таможня и ВЭД | douane;dedouanement;customs;import-export;transitaire;таможн;الجمارك | f | t | juridique
+Incoterms | = | = | Инкотермс | incoterms;инкотермс | f | n
+Logistique e-commerce | E-commerce fulfilment | لوجستيك التجارة الإلكترونية | Фулфилмент | fulfilment;fulfillment;last mile;dernier kilometre;фулфилмент | s | t | business
+Chariot élévateur (CACES) | Forklift licence | رخصة الرافعة الشوكية | Погрузчик | caces;chariot elevateur;forklift;погрузчик | s | n
+Permis B | Driving licence | رخصة السياقة | Водительские права | permis b;permis de conduire;driving licence;driving license;водительские права;رخصة السياقة | f | n

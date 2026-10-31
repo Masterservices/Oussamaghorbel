@@ -1,0 +1,25 @@
+# topics: finance
+## Comptabilité
+Comptabilité générale | General accounting | المحاسبة العامة | Бухгалтерский учёт | comptabilite;comptable;accounting;accountant;bookkeeping;бухгалтер;المحاسبة | c | t
+Comptabilité analytique | Cost accounting | المحاسبة التحليلية | Управленческий учёт | comptabilite analytique;cost accounting;management accounting;управленческий учет | f | t
+Clôture · bilan | Closing · financial statements | القوائم المالية | Закрытие периода и отчётность | cloture;bilan;liasse fiscale;etats financiers;financial statements;year-end;баланс;القوائم المالية | f | t
+Normes IFRS | IFRS | المعايير الدولية للتقارير المالية | МСФО | ifrs;ias;мсфо | f | n
+Fiscalité | Taxation | الجباية | Налогообложение | fiscalite;tax;taxation;tva;vat;impots;налог;الضرائب;الجباية | f | t | juridique
+Paie | Payroll | الأجور | Расчёт заработной платы | paie;payroll;bulletins de salaire;зарплат;الأجور | f | t | rh
+Rapprochement bancaire | Bank reconciliation | التسوية البنكية | Банковская сверка | rapprochement bancaire;bank reconciliation;сверк | s | t
+Comptabilité fournisseurs et clients | Accounts payable and receivable | حسابات الموردين والعملاء | Расчёты с контрагентами | comptabilite fournisseurs;accounts payable;accounts receivable;recouvrement;кредиторск;дебиторск | f | t
+## Finance d'entreprise
+Contrôle de gestion | Management control | مراقبة التسيير | Контроллинг | controle de gestion;controleur de gestion;controlling;financial controller;контроллинг;مراقبة التسيير | c | t
+Analyse financière | Financial analysis | التحليل المالي | Финансовый анализ | analyse financiere;financial analysis;financial analyst;ratios;финансовый анализ;التحليل المالي | c | t
+Modélisation financière | Financial modelling | النمذجة المالية | Финансовое моделирование | modelisation financiere;financial model;financial modelling;financial modeling;dcf;valorisation;valuation;финансовое моделирование | f | m | data
+Budgétisation · prévisions | Budgeting · forecasting | إعداد الموازنات | Бюджетирование | budgetisation;budgeting;forecasting;previsions;reforecast;бюджетирован | c | m
+Trésorerie | Cash management | الخزينة | Казначейство | tresorerie;cash management;treasury;cash flow;flux de tresorerie;казначейств;الخزينة | f | t
+Audit financier | Financial audit | التدقيق المالي | Финансовый аудит | audit financier;financial audit;commissaire aux comptes;external audit;финансовый аудит;التدقيق المالي | f | t | juridique
+Contrôle interne | Internal control | الرقابة الداخلية | Внутренний контроль | controle interne;internal control;sox;внутренний контроль | s | m
+Analyse des coûts | Cost analysis | تحليل التكاليف | Анализ затрат | analyse des couts;cost analysis;prix de revient;costing;себестоимост | f | m | industrie
+Banque · crédit | Banking · credit | البنوك والقروض | Банковское дело и кредитование | banque;banking;credit;credit analyst;кредит;банк;البنوك | f | t
+Assurance | Insurance | التأمين | Страхование | assurance;insurance;страхован;التأمين | s | t
+Marchés financiers | Financial markets | الأسواق المالية | Финансовые рынки | marches financiers;financial markets;trading;bourse;финансовые рынки | s | t
+Finance islamique | Islamic finance | الصيرفة الإسلامية | Исламские финансы | finance islamique;islamic finance;sukuk;الصيرفة الإسلامية | s | t
+## Logiciels financiers
+Logiciels comptables | Accounting software | البرمجيات المحاسبية | Бухгалтерские программы | ciel compta;quickbooks;xero;cegid;ebp | f | o | erp

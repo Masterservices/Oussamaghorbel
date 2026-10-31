@@ -1,0 +1,25 @@
+# topics: engineering
+## Ingénierie
+Conception mécanique | Mechanical design | التصميم الميكانيكي | Механическое проектирование | conception mecanique;mechanical design;bureau d'etudes;design engineer;конструктор;механическ | f | t | industrie
+SolidWorks | = | = | = | solidworks | f | o
+CATIA | = | = | = | catia | f | o
+AutoCAD | = | = | = | autocad;dao;cad | c | o | btp
+Calcul de structures (éléments finis) | Structural analysis (FEA) | حساب الهياكل | Расчёт конструкций | elements finis;finite element;fea;ansys;abaqus;rdm;расчет конструкций | s | t | btp
+Gestion de projet R&D | R&D project management | إدارة مشاريع البحث والتطوير | Управление НИОКР | r&d;recherche et developpement;research and development;innovation;ниокр;البحث والتطوير | f | t | project
+Recherche scientifique · publications | Scientific research · publications | البحث العلمي | Научные исследования | recherche scientifique;scientific research;publications;these;phd;doctorat;научн;البحث العلمي | s | t | education
+Veille technologique | Technology watch | اليقظة التكنولوجية | Технологический мониторинг | veille technologique;technology watch;veille | f | m
+Brevets · propriété industrielle | Patents · IP | براءات الاختراع | Патенты | brevet;brevets;patent;propriete industrielle;патент | s | t | juridique
+Électronique | Electronics | الإلكترونيات | Электроника | electronique;electronics;pcb;arduino;raspberry;embarque;embedded;электроник | s | t
+Énergies renouvelables | Renewable energy | الطاقات المتجددة | Возобновляемая энергетика | energies renouvelables;renewable energy;photovoltaique;solaire;solar;eolien;возобновляем;الطاقات المتجددة | s | t | btp
+Efficacité énergétique | Energy efficiency | النجاعة الطاقية | Энергоэффективность | efficacite energetique;energy efficiency;audit energetique;энергоэффектив | s | t
+# topics: btp
+## BTP
+Conduite de travaux | Site management | تسيير الأشغال | Управление строительством | conduite de travaux;conducteur de travaux;site manager;chantier;chantiers;прораб;строительн;الأشغال | c | t | project
+Métré · étude de prix | Quantity surveying | دراسة الكميات والأسعار | Сметное дело | metre;metres;etude de prix;quantity surveying;quantity surveyor;devis;смет;الكميات | f | t | finance
+Revit · BIM | = | = | = | revit;bim;archicad;navisworks | f | o
+Génie civil | Civil engineering | الهندسة المدنية | Гражданское строительство | genie civil;civil engineering;beton arme;gros oeuvre;гражданское строительство;الهندسة المدنية | f | t | engineering
+Topographie | Surveying | الطبوغرافيا | Геодезия | topographie;topographe;surveying;геодез;الطبوغرافيا | s | t
+CVC · plomberie | HVAC · plumbing | التكييف والسباكة | ОВиК и сантехника | cvc;hvac;plomberie;climatisation;fluides;овик;сантехник;التكييف | s | t
+Réglementation de la construction | Building regulations | قوانين البناء | Строительные нормы | reglementation;normes de construction;building codes;eurocodes;dtu;снип;строительные нормы | s | n | juridique
+Architecture | = | الهندسة المعمارية | Архитектура | architecte;architecture interieure;interior design;architectural;архитектор;الهندسة المعمارية | s | t | design
+Immobilier | Real estate | العقارات | Недвижимость | immobilier;real estate;agent immobilier;property management;недвижимост;العقارات | s | t | business

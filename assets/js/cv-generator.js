@@ -154,29 +154,46 @@
   C.LANGUAGES.forEach(function (l) { LANG_SCORE[l.code] = l.score; });
   var SINCE = 2010; // premier poste (Christine Confection), hors stages
 
+  var RX = {};
   function has(text, pattern) {
     var w = norm(pattern);
-    if (/^[a-z0-9+#.\/' -]+$/.test(w)) {
-      var esc = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      return new RegExp("(^|[^a-z0-9])" + esc + "(?=[^a-z0-9]|$)").test(text);
+    if (/^[a-z0-9+#.\/'& -]+$/.test(w)) {
+      var rx = RX[w];
+      if (!rx) rx = RX[w] = new RegExp("(^|[^a-z0-9])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=[^a-z0-9]|$)");
+      return rx.test(text);
     }
     return text.indexOf(w) !== -1;
   }
-  var REQ = {};
-  G.requirements.forEach(function (r) { REQ[r[0]] = r; });
+  /*
+   * Compétences reconnues : le dictionnaire (assets/js/skills-dict.js, ~450 fiches en 4 langues,
+   * construit par tools/build-skills.mjs) ou, à défaut, CV_GENERATOR.requirements.
+   * Fiche : { id, label (fr), p: motifs, t: thèmes, v: niveau c|f|s, r: ids liés, g: code de langue }
+   */
+  var D = window.SKILLS_DICT;
+  var SK = D ? D.skills.map(function (x) { return { id: x.id, label: x.l[0], p: x.p, t: x.t, v: x.v, r: x.r, g: x.g, c: x.c }; })
+    : G.requirements.map(function (r) { return { id: r[0], label: r[0], p: r[1], t: [], v: "f", r: [], g: r[2] }; });
+  var REQ = {}, BYID = {};
+  SK.forEach(function (x) { REQ[x.label] = x; BYID[x.id] = x; });
+  if (D && D.aliases) Object.keys(D.aliases).forEach(function (a) { if (BYID[D.aliases[a]]) REQ[a] = BYID[D.aliases[a]]; });
+  // Compétences d'un thème, par niveau (c courant, f fréquent, s spécialisé), dans l'ordre du dictionnaire
+  function ofTopic(k, levels) { return SK.filter(function (x) { return x.t.indexOf(k) !== -1 && levels.indexOf(x.v) !== -1; }); }
+  var STATUS = {};
   // ok : déjà dans le CV ; part : langue en cours d'apprentissage ; no : absente du CV
   function statusOf(r) {
-    if (r[2]) {
-      var s = LANG_SCORE[r[2]] || 0;
-      return s >= 4 ? "ok" : s > 0 ? "part" : "no";
-    }
-    return r[1].concat([r[0]]).some(function (p) { return has(PROFILE_TEXT, p); }) ? "ok" : "no";
+    if (STATUS[r.id]) return STATUS[r.id];
+    var st;
+    if (r.g) {
+      var s = LANG_SCORE[r.g] || 0;
+      st = s >= 4 ? "ok" : s > 0 ? "part" : "no";
+    } else st = r.p.concat([r.label]).some(function (p) { return has(PROFILE_TEXT, p); }) ? "ok" : "no";
+    return (STATUS[r.id] = st);
   }
+  function item(r) { return { id: r.id, label: r.label, status: statusOf(r), r: r.r, c: r.c }; }
   function requirements(post, ad) {
     var text = norm(post + " \n " + ad);
-    return G.requirements.filter(function (r) {
-      return r[1].some(function (p) { return has(text, p); });
-    }).map(function (r) { return { label: r[0], status: statusOf(r) }; });
+    return SK.filter(function (r) {
+      return r.p.some(function (p) { return has(text, p); });
+    }).map(item);
   }
   // Compétences souvent attendues pour les thèmes repérés, que l'annonce ne cite pas
   function expectedFor(w, reqs) {
@@ -184,29 +201,34 @@
     reqs.forEach(function (r) { seen[r.label] = true; });
     var top = Math.max.apply(null, TOPICS.map(function (k) { return w[k]; }));
     TOPICS.filter(function (k) { return w[k] > 0 && w[k] >= top * 0.5; }).sort(function (a, b) { return w[b] - w[a]; }).forEach(function (k) {
-      (G.expected[k] || []).forEach(function (label) {
-        if (!seen[label] && REQ[label] && out.length < 8) { seen[label] = true; out.push({ label: label, status: statusOf(REQ[label]) }); }
+      // Choix éditorial (CV_GENERATOR.expected), puis compétences « courantes » du dictionnaire
+      (G.expected[k] || []).map(function (l) { return REQ[l]; }).concat(ofTopic(k, ["c"])).forEach(function (r) {
+        if (r && !seen[r.label] && out.length < 8) { seen[r.label] = true; out.push(item(r)); }
       });
     });
     return out;
   }
   /*
-   * « Chercher plus de compétences adéquates » : compétences voisines, par ordre de pertinence :
-   * thèmes dominants (G.more), puis tous les thèmes repérés, puis ceux du profil de départ.
+   * « Chercher plus de compétences adéquates », par ordre de pertinence :
+   * 1. compétences liées à celles de l'annonce (r du dictionnaire) ;
+   * 2. thèmes dominants : CV_GENERATOR.more, puis compétences courantes et fréquentes du dictionnaire ;
+   * 3. tous les thèmes repérés ; 4. thèmes du profil de départ ; 5. compétences spécialisées.
    * Chaque clic en montre MORE_STEP de plus. Elles ne changent pas la note.
    */
   function moreFor(w, shown) {
     var seen = {}, out = [];
     shown.forEach(function (r) { seen[r.label] = true; });
-    function add(label) {
-      if (!seen[label] && REQ[label]) { seen[label] = true; out.push({ label: label, status: statusOf(REQ[label]) }); }
-    }
+    function add(r) { if (r && !seen[r.label]) { seen[r.label] = true; out.push(item(r)); } }
+    function byLabel(l) { return REQ[l]; }
     var top = Math.max.apply(null, TOPICS.map(function (k) { return w[k]; }));
     var byWeight = TOPICS.filter(function (k) { return w[k] > 0; }).sort(function (a, b) { return w[b] - w[a]; });
-    byWeight.filter(function (k) { return w[k] >= top * 0.5; }).forEach(function (k) { (G.more[k] || []).forEach(add); });
-    byWeight.forEach(function (k) { (G.expected[k] || []).concat(G.more[k] || []).forEach(add); });
+    var dominant = byWeight.filter(function (k) { return w[k] >= top * 0.5; });
+    shown.forEach(function (r) { (r.r || []).forEach(function (id) { add(BYID[id]); }); });
+    dominant.forEach(function (k) { (G.more[k] || []).map(byLabel).concat(ofTopic(k, ["c", "f"])).forEach(add); });
+    byWeight.forEach(function (k) { (G.expected[k] || []).concat(G.more[k] || []).map(byLabel).concat(ofTopic(k, ["c", "f"])).forEach(add); });
     var base = chosenBase() != null ? chosenBase() : autoBase(w);
-    (G.bases[base] || []).forEach(function (k) { (G.expected[k] || []).concat(G.more[k] || []).forEach(add); });
+    (G.bases[base] || []).forEach(function (k) { ofTopic(k, ["c", "f"]).forEach(add); });
+    dominant.concat(G.bases[base] || []).forEach(function (k) { ofTopic(k, ["s"]).forEach(add); });
     return out;
   }
   function yearsAsked(ad) {
@@ -220,19 +242,16 @@
     var tags = {};
     (cfg ? cfg.k : []).forEach(function (id) { (G.tags[id] || []).forEach(function (t) { tags[t] = true; }); });
     var aligned = total ? TOPICS.reduce(function (s, k) { return s + (tags[k] ? w[k] : 0); }, 0) / total : 0;
-    var got = 0;
-    reqs.forEach(function (r) {
-      if (r.status === "ok" || state.extra.indexOf(r.label) !== -1) got += 1;
-      else if (r.status === "part") got += 0.5;
-    });
+    // Une compétence transverse (autonomie, travail en équipe…) pèse moitié moins qu'une compétence technique.
+    function wt(r) { return r.c === "x" ? 0.5 : 1; }
+    function gain(r) { return r.status === "ok" || state.extra.indexOf(r.label) !== -1 ? 1 : r.status === "part" ? 0.5 : 0; }
+    var got = 0, gotW = 0, reqW = 0;
+    reqs.forEach(function (r) { got += gain(r); gotW += gain(r) * wt(r); reqW += wt(r); });
     // Les compétences souvent attendues (non citées par l'annonce) comptent pour moitié.
-    var gotExp = 0;
-    exp.forEach(function (r) {
-      if (r.status === "ok" || state.extra.indexOf(r.label) !== -1) gotExp += 1;
-      else if (r.status === "part") gotExp += 0.5;
-    });
-    var weight = reqs.length + exp.length * 0.5;
-    var cover = weight ? (got + gotExp * 0.5) / weight : 0;
+    var gotExp = 0, gotExpW = 0, expW = 0;
+    exp.forEach(function (r) { gotExp += gain(r); gotExpW += gain(r) * wt(r); expW += wt(r); });
+    var weight = reqW + expW * 0.5;
+    var cover = weight ? (gotW + gotExpW * 0.5) / weight : 0;
     var asked = yearsAsked($("ad").value), mine = new Date().getFullYear() - SINCE;
     var years = asked ? Math.min(1, mine / asked) : 1;
     var score = weight ? 0.6 * cover + 0.3 * aligned + 0.1 * years : 0.8 * aligned + 0.2 * years;
@@ -475,8 +494,11 @@
     refresh();
   }
 
-  $("post").addEventListener("input", function () { state.manual = null; state.toggles = {}; state.more = 0; update(); });
-  $("ad").addEventListener("input", function () { state.manual = null; state.toggles = {}; state.more = 0; update(); });
+  // Saisie : recalcul après une courte pause (le dictionnaire compte ~2 500 motifs).
+  var typing = null;
+  function typed() { state.manual = null; state.toggles = {}; state.more = 0; clearTimeout(typing); typing = setTimeout(update, 150); }
+  $("post").addEventListener("input", typed);
+  $("ad").addEventListener("input", typed);
   $("findMore").addEventListener("click", function () { state.more++; refresh(); });
   $("base").addEventListener("change", function () { state.manual = null; refresh(); });
   function addTyped() {

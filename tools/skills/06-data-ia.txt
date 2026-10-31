@@ -1,0 +1,40 @@
+# topics: data
+## Analyse de données
+Excel | = | = | = | excel;tableur;tableaux croises dynamiques;pivot table;vlookup;recherchev;эксель | c | o | finance
+Excel avancé (VBA, Power Query) | Advanced Excel (VBA, Power Query) | Excel المتقدم | Продвинутый Excel | vba;power query;macros excel;power pivot | f | o | finance
+Power BI | = | = | = | power bi;dax | c | o
+Tableau | = | = | = | tableau software;tableau desktop | f | o
+Looker · Metabase | = | = | = | metabase;superset;looker bi | s | o
+Analyse de données | Data analysis | تحليل البيانات | Анализ данных | analyse de donnees;data analysis;data analyst;analyste de donnees;анализ данных;аналитик данных;تحليل البيانات | c | t
+Statistiques | Statistics | الإحصاء | Статистика | statistique;statistiques;statistics;statistical;статистик;الإحصاء | f | t | engineering
+Économétrie | Econometrics | الاقتصاد القياسي | Эконометрика | econometrie;econometrics;эконометрик;الاقتصاد القياسي | s | t | finance
+Data visualisation | Data visualisation | تصوير البيانات | Визуализация данных | dataviz;data visualisation;data visualization;визуализац | f | m
+Modélisation mathématique | Mathematical modelling | النمذجة الرياضية | Математическое моделирование | modelisation;modelling;modeling;simulation;математическое моделирование | f | t | engineering
+Recherche opérationnelle | Operations research | بحوث العمليات | Исследование операций | recherche operationnelle;operations research;optimisation;линейное программирование | s | t | logistique
+## Ingénierie des données
+Pandas · NumPy | = | = | = | pandas;numpy;jupyter | f | o
+R | = | = | = | langage r;rstudio | s | o
+Matlab | = | = | = | matlab;simulink | f | o | engineering
+SAS · SPSS | = | = | = | sas;spss;stata | s | o
+ETL · pipelines de données | ETL · data pipelines | خطوط البيانات | ETL | etl;elt;data pipeline;airflow;dbt;talend | f | m
+Data warehouse | = | مستودع البيانات | Хранилище данных | data warehouse;entrepot de donnees;bigquery;snowflake;redshift;хранилище данных | f | o
+Big Data (Spark, Hadoop) | = | البيانات الضخمة | Big Data | big data;spark;hadoop;databricks;kafka | s | o
+Qualité des données | Data quality | جودة البيانات | Качество данных | qualite des donnees;data quality;data governance;gouvernance des donnees;mdm | s | m | quality
+# topics: ai
+## Intelligence artificielle
+Machine learning | = | تعلم الآلة | Машинное обучение | machine learning;apprentissage automatique;scikit-learn;sklearn;xgboost;машинное обучение;تعلم الآلة | f | t | data
+Deep learning | = | التعلم العميق | Глубокое обучение | deep learning;tensorflow;pytorch;keras;neural network;reseaux de neurones;нейронн;глубокое обучение | s | t | data
+Vision par ordinateur | Computer vision | الرؤية الحاسوبية | Компьютерное зрение | vision par ordinateur;computer vision;opencv;yolo;traitement d'images;image processing;компьютерное зрение | s | t | data,engineering
+NLP · traitement du langage | NLP | معالجة اللغة الطبيعية | Обработка естественного языка | nlp;traitement automatique du langage;natural language processing;huggingface;hugging face | s | t
+IA générative | Generative AI | الذكاء الاصطناعي التوليدي | Генеративный ИИ | ia generative;generative ai;genai;chatgpt;llm;gpt;генеративн;нейросет;الذكاء الاصطناعي التوليدي | c | t
+Prompt engineering | = | هندسة الأوامر | Промпт-инжиниринг | prompt;prompt engineering;промпт | c | m
+Claude | = | = | = | claude;anthropic | f | o
+Gemini | = | = | = | gemini | f | o
+OpenAI API | = | = | = | openai;openai api;gpt-4;gpt-5 | f | o | web
+Agents IA | AI agents | وكلاء الذكاء الاصطناعي | ИИ-агенты | agents ia;ai agents;agent ia;agentic;ии-агент | f | t
+RAG | = | = | = | rag;retrieval augmented;vector database;base vectorielle;embeddings | s | t | web
+LangChain · LlamaIndex | = | = | = | langchain;llamaindex;llama index | s | o | web
+MLOps | = | = | = | mlops;mlflow;model deployment | s | m | web
+Génération d'images IA | AI image generation | توليد الصور بالذكاء الاصطناعي | Генерация изображений ИИ | midjourney;stable diffusion;dall-e;flux;firefly | f | o | design
+Génération de voix et vidéo IA | AI voice and video generation | توليد الصوت والفيديو بالذكاء الاصطناعي | Генерация голоса и видео ИИ | elevenlabs;heygen;runway;synthesia;voix ia;ai voice;text-to-speech | s | o | design,marketing
+Éthique et conformité IA | AI ethics and compliance | أخلاقيات الذكاء الاصطناعي | Этика ИИ | ethique de l'ia;ai ethics;ai act;responsible ai | s | n | juridique

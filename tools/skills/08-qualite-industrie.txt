@@ -1,0 +1,32 @@
+# topics: quality
+## Qualité
+Contrôle qualité | Quality control | مراقبة الجودة | Контроль качества | controle qualite;quality control;qc;контроль качества;مراقبة الجودة | c | t
+Assurance qualité | Quality assurance | ضمان الجودة | Обеспечение качества | assurance qualite;quality assurance;qa;обеспечение качества;ضمان الجودة | c | t
+ISO 9001 | = | = | = | iso 9001;iso9001;smq;systeme de management de la qualite;qms | c | n
+ISO 14001 · ISO 45001 | = | = | = | iso 14001;iso 45001;ohsas;qhse;hse;qse | f | n | industrie
+Audit qualité | Quality audit | تدقيق الجودة | Аудит качества | audit qualite;quality audit;audit interne;internal audit;аудит качества | f | m
+AMDEC | FMEA | تحليل أنماط الفشل | FMEA | amdec;fmea;pfmea | f | m
+Lean | = | التصنيع الرشيق | Бережливое производство | lean;lean manufacturing;бережлив | c | m | industrie
+Six Sigma | = | = | Шесть сигм | six sigma;green belt;black belt;dmaic | f | n
+5S · Kaizen | = | = | 5S · Кайдзен | 5s;kaizen;кайдзен | f | m | industrie
+Résolution de problèmes (8D, Ishikawa) | Problem solving (8D, Ishikawa) | منهجيات حل المشكلات (8D) | Решение проблем (8D) | 8d;ishikawa;5 pourquoi;5 why;root cause;pdca;qrqc | f | m
+Maîtrise statistique des procédés | Statistical process control | الضبط الإحصائي للعمليات | Статистическое управление процессами | msp;spc;statistical process control;capabilite;cpk | s | m | data
+Métrologie | Metrology | علم القياس | Метрология | metrologie;metrology;метролог | s | t | engineering
+HACCP | = | = | ХАССП | haccp;хассп;securite alimentaire;food safety | f | n | sante,hotellerie
+Normes IATF · automobile | IATF 16949 | = | = | iatf;16949;ppap;apqp | s | n | industrie
+Gestion des non-conformités | Non-conformity management | إدارة عدم المطابقة | Управление несоответствиями | non-conformite;non-conformites;non-conformity;capa;actions correctives;несоответств | f | m
+# topics: industrie
+## Production industrielle
+Gestion de production | Production management | إدارة الإنتاج | Управление производством | gestion de production;production management;responsable de production;production manager;управление производством;مدير الإنتاج | c | t | quality
+Amélioration continue | Continuous improvement | التحسين المستمر | Непрерывное улучшение | amelioration continue;continuous improvement;непрерывное улучшение;التحسين المستمر | c | m | quality
+TPM · maintenance | TPM · maintenance | الصيانة | Техническое обслуживание | tpm;maintenance;maintenance preventive;preventive maintenance;gmao;cmms;техническое обслуживание;ремонт оборудования;الصيانة | f | t
+Ordonnancement | Production scheduling | جدولة الإنتاج | Планирование производства | ordonnancement;scheduling;mps;pic | f | m | logistique
+OEE · TRS | = | = | = | trs;oee;taux de rendement | f | m
+SMED | = | = | = | smed;changement rapide | s | m
+VSM | Value stream mapping | = | Картирование потока создания ценности | vsm;value stream | s | m
+Sécurité au travail | Workplace safety | السلامة المهنية | Охрана труда | securite au travail;health and safety;sante securite;охрана труда;السلامة المهنية | f | t | rh
+Automatisme · PLC | Automation · PLC | الأتمتة الصناعية | Автоматизация · ПЛК | automatisme;plc;automate;siemens tia;grafcet;scada;плк;асу тп | s | t | engineering
+Électricité industrielle | Industrial electricity | الكهرباء الصناعية | Промышленная электрика | electricite industrielle;electrotechnique;habilitation electrique;электрик;الكهرباء الصناعية | s | t | btp
+Mécanique · usinage | Machining | الميكانيك والتشغيل | Механообработка | usinage;machining;cnc;tournage;fraisage;чпу;механообработ | s | t | engineering
+Agroalimentaire | Food industry | الصناعات الغذائية | Пищевая промышленность | agroalimentaire;food industry;food processing;пищев;الصناعات الغذائية | s | t | sante
+Industrie 4.0 | = | الصناعة 4.0 | Индустрия 4.0 | industrie 4.0;industry 4.0;iot;mes | s | t | erp
