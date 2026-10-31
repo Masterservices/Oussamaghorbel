@@ -13,8 +13,11 @@
   var slug = document.body.getAttribute("data-cv") || "";
   var T = slug && C.CV_TARGETS ? C.CV_TARGETS[slug] : null;
   var params = new URLSearchParams(window.location.search);
-  // Lien du générateur (?g=…) : un CV composé pour un poste à partir du contenu existant.
-  if (!T && params.get("g")) T = customTarget(params.get("g"));
+  var GEN_PARAMS = ["poste", "profil", "exp", "projets", "details", "competences", "ambitions", "atouts", "plus"];
+  // Lien du générateur : un CV composé pour un poste à partir du contenu existant.
+  // Lien lisible (?poste=…&profil=…&exp=…) ; l'ancien format ?g=… (base64) reste accepté.
+  if (!T && GEN_PARAMS.some(function (k) { return params.has(k); })) T = customTarget(fromParams(params));
+  else if (!T && params.get("g")) T = customTarget(fromBase64(params.get("g")));
   var pdfBase = document.body.getAttribute("data-pdf") || "Oussama-Ghorbel-CV";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var state = { lang: "fr", filter: "all", open: {} };
@@ -45,13 +48,32 @@
   function pick(list, ids) { return ids ? ids.map(function (id) { return byId(list, id); }).filter(Boolean) : list; }
   function pdfHref(lang) { return pdfBase + "-" + lang.toUpperCase() + ".pdf"; }
 
-  // Décode la configuration du générateur : { t: poste, b: profil de départ, k, p, d, s, v: ids, h: atouts }.
-  // Seuls des identifiants existants sont retenus ; le poste saisi est le seul texte libre.
-  function customTarget(raw) {
-    var j;
-    try {
-      j = JSON.parse(decodeURIComponent(escape(atob(raw.replace(/-/g, "+").replace(/_/g, "/")))));
-    } catch (e) { return null; }
+  function fromBase64(raw) {
+    try { return JSON.parse(decodeURIComponent(escape(atob(raw.replace(/-/g, "+").replace(/_/g, "/"))))); } catch (e) { return null; }
+  }
+  // Lien lisible du générateur. Une liste absente reprend celle du profil de départ
+  // (ou tout le contenu pour le CV général) ; une liste vide (« exp= ») n'affiche rien.
+  function fromParams(q) {
+    var b = q.get("profil") || "";
+    if (b === "general" || !C.CV_TARGETS[b]) b = "";
+    var B = b ? C.CV_TARGETS[b] : null;
+    var ids = function (list) { return list.map(function (x) { return x.id; }); };
+    var def = B ? { k: B.key, p: B.projects, d: B.detail, s: B.skills, v: B.vision, h: B.highlights.map(function (h, i) { return b + "." + i; }) }
+      : { k: ids(C.EXPERIENCE), p: ids(C.CASES), d: [], s: ids(C.SKILLS), v: ids(C.VISION), h: C.PROFILE.highlights.map(function (h, i) { return "profile." + i; }) };
+    function list(name, key) {
+      return q.has(name) ? q.get(name).split(",").map(function (x) { return x.trim(); }).filter(Boolean) : def[key];
+    }
+    return {
+      t: q.get("poste") || "", b: b,
+      k: list("exp", "k"), p: list("projets", "p"), d: list("details", "d"),
+      s: list("competences", "s"), v: list("ambitions", "v"), h: list("atouts", "h"),
+      x: q.getAll("plus")
+    };
+  }
+
+  // Configuration du générateur : { t: poste, b: profil de départ, k, p, d, s, v: ids, h: atouts, x: compétences ajoutées }.
+  // Seuls des identifiants existants sont retenus ; le poste et les compétences ajoutées sont les seuls textes libres.
+  function customTarget(j) {
     if (!j || typeof j !== "object") return null;
     var base = j.b && C.CV_TARGETS[j.b] ? C.CV_TARGETS[j.b] : null;
     var post = String(j.t || "").trim().slice(0, 120);

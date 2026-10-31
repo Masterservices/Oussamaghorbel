@@ -413,19 +413,41 @@
     return cfg;
   }
 
-  function encode(cfg) {
-    var json = JSON.stringify(cfg);
-    return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  /*
+   * Lien lisible : /cv/?poste=Chargé+SEO&profil=seo&lang=fr&exp=ms,ifaco&plus=Git
+   * Seules les listes qui diffèrent du profil de départ sont écrites (cv.js reprend les autres).
+   * Les lettres accentuées, arabes et cyrilliques restent en clair ; seuls & = # + ? % sont codés.
+   */
+  function enc(v) {
+    return encodeURIComponent(String(v)).replace(/%20/g, "+").replace(/%2C/gi, ",")
+      .replace(/(%[C-F][0-9A-F](%[89AB][0-9A-F])+)+/gi, function (m) { try { return decodeURIComponent(m); } catch (e) { return m; } });
+  }
+  function defaultsFor(b) {
+    var B = b ? C.CV_TARGETS[b] : null;
+    var ids = function (list) { return list.map(function (x) { return x.id; }); };
+    return B ? { k: B.key, p: B.projects, d: B.detail, s: B.skills, v: B.vision, h: refs(b) }
+      : { k: ids(C.EXPERIENCE), p: ids(C.CASES), d: [], s: ids(C.SKILLS), v: ids(C.VISION), h: refs("") };
   }
   function linkFor(cfg, extra) {
-    var url = new URL("../", window.location.href);
-    url.searchParams.set("lang", state.lang);
-    if (cfg) url.searchParams.set("g", encode(cfg));
-    if (extra) Object.keys(extra).forEach(function (k) { url.searchParams.set(k, extra[k]); });
-    return url.href;
+    var url = new URL("../", window.location.href).href.split("?")[0];
+    var q = [];
+    if (cfg) {
+      if (cfg.t) q.push("poste=" + enc(cfg.t));
+      q.push("profil=" + (cfg.b || "general"));
+    }
+    q.push("lang=" + state.lang);
+    if (cfg) {
+      var def = defaultsFor(cfg.b);
+      [["exp", "k"], ["projets", "p"], ["details", "d"], ["competences", "s"], ["ambitions", "v"], ["atouts", "h"]].forEach(function (f) {
+        if ((cfg[f[1]] || []).join(",") !== (def[f[1]] || []).join(",")) q.push(f[0] + "=" + (cfg[f[1]] || []).map(enc).join(","));
+      });
+      (cfg.x || []).forEach(function (x) { q.push("plus=" + enc(x)); });
+    }
+    if (extra) Object.keys(extra).forEach(function (k) { q.push(k + "=" + enc(extra[k])); });
+    return url + "?" + q.join("&");
   }
 
-  var timer = null;
+  var timer = null, lastPreview = "";
   function refresh() {
     var cfg = currentConfig();
     var ab = autoBase(weights());
@@ -444,7 +466,7 @@
     $("open").href = url;
     $("pdf").href = linkFor(cfg, { print: "1" });
     clearTimeout(timer);
-    timer = setTimeout(function () { if ($("preview").src !== url) $("preview").src = url; }, 450);
+    timer = setTimeout(function () { if (lastPreview !== url) { lastPreview = url; $("preview").src = url; } }, 450);
   }
 
   function update() {
