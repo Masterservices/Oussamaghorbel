@@ -55,8 +55,11 @@ le site et le CV se mettent à jour ensemble. Toujours changer `updated` (date a
 - Générateur (`cv/generateur/`, `assets/js/cv-generator.js`, `assets/css/cv-generator.css`) : page écrite à la main,
   non générée par le script, `noindex`, jamais liée. Il détecte les thèmes de `CV_GENERATOR.topics` (mots-clés
   sans accents, 4 langues), score chaque élément par ses `CV_GENERATOR.tags`, ajoute un bonus dégressif aux
-  éléments du profil de départ le plus proche (`bases`), puis encode le choix dans `/cv/?g=` (base64url d'un
-  JSON `{t, b, k, p, d, s, v, h}` ; `h` = « profil.index » des atouts). `cv.js` relit ce lien, ne garde que des
+  éléments du profil de départ le plus proche (`bases`), puis écrit le choix dans un lien lisible (demande d'Oussama : pas de lettres au hasard) :
+  `/cv/?poste=Chargé+SEO&profil=seo&lang=fr&exp=ms,ifaco&projets=…&details=…&competences=…&ambitions=…&atouts=seo.0,…&plus=Git`.
+  Seules les listes qui diffèrent du profil de départ sont écrites ; une liste absente reprend celle du profil
+  (tout le contenu pour `profil=general`). Accents, arabe et cyrillique restent en clair. L'ancien format
+  `?g=` (base64 d'un JSON `{t, b, k, p, d, s, v, h, x}`) reste lu pour les liens déjà envoyés. `cv.js` relit ce lien, ne garde que des
   identifiants existants et propose « Enregistrer en PDF » (impression) à la place des PDF préparés.
   Toute nouvelle expérience, tout projet, groupe de compétences ou ambition doit recevoir ses tags, et tout
   nouvel atout un champ `tags`.
