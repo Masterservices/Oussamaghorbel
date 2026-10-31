@@ -821,6 +821,22 @@ window.SITE_CONTENT = {
       data: ["Excel", "Python", "SQL", "Power BI", "Statistiques"],
       ai: ["IA générative", "Prompt engineering", "Automatisation (n8n, Zapier…)"]
     },
+    // Compétences voisines, proposées seulement avec « Chercher plus de compétences adéquates »
+    // (libellés pris dans requirements ci-dessous). Elles ne changent pas la note.
+    more: {
+      web: ["Tailwind CSS", "Vue.js", "Responsive design", "Tests (Jest, Cypress)", "CI/CD", "Performance web", "Docker", "Next.js"],
+      seo: ["SEO technique", "Données structurées (Schema.org)", "Core Web Vitals", "Semrush · Ahrefs", "Google Tag Manager", "Stratégie de contenu", "Google Business Profile"],
+      marketing: ["Stratégie digitale", "Google Tag Manager", "A/B testing", "LinkedIn Ads", "HubSpot", "Marketing automation", "Photoshop"],
+      business: ["Pipeline commercial", "LinkedIn Sales Navigator", "HubSpot", "Salesforce", "Export / international", "Business plan", "Reporting · KPI"],
+      project: ["Gestion des risques", "MS Project", "Reporting · KPI", "Trello", "Monday.com", "Cahier des charges", "PMP · Prince2"],
+      consulting: ["Conduite du changement", "Cartographie des processus", "PowerPoint", "Reporting · KPI", "Lean"],
+      erp: ["Cartographie des processus", "Dolibarr", "Automatisation (n8n, Zapier…)", "Power BI", "Salesforce", "Conduite du changement"],
+      textile: ["Gerber", "GPAO", "Fiche technique", "Gradation", "Sourcing", "Méthodes · industrialisation"],
+      quality: ["AMDEC", "5S · Kaizen", "Audit qualité", "Méthodes · industrialisation", "Reporting · KPI"],
+      engineering: ["Matlab", "Cahier des charges", "AutoCAD", "Gestion de projet"],
+      data: ["Matlab", "Machine learning", "Reporting · KPI", "Pandas", "Google Analytics"],
+      ai: ["Claude", "Gemini", "Automatisation (n8n, Zapier…)", "Agents IA", "RAG"]
+    },
     /*
      * Exigences reconnues dans une annonce. Le générateur cherche ces mots (sans accents) dans
      * l'annonce, puis dans le CV pour dire si la compétence y figure déjà. lang : code de LANGUAGES.
@@ -851,6 +867,20 @@ window.SITE_CONTENT = {
       ["Automatisation (n8n, Zapier…)", ["n8n", "zapier", "make.com", "automatisation", "automation"]],
       ["Anglais", ["anglais", "english", "английск"], "EN"], ["Français", ["francais", "french", "французск"], "FR"],
       ["Arabe", ["arabe", "arabic", "арабск"], "AR"], ["Russe", ["russe", "russian", "русск"], "RU"], ["Allemand", ["allemand", "german", "немецк"], "DE"],
+      ["Tailwind CSS", ["tailwind"]], ["Vue.js", ["vue.js", "vuejs"]], ["Responsive design", ["responsive", "mobile first"]],
+      ["Tests (Jest, Cypress)", ["jest", "cypress", "tests unitaires", "unit test", "playwright"]], ["CI/CD", ["ci/cd", "integration continue", "continuous integration"]],
+      ["Performance web", ["performance web", "web performance", "lighthouse"]], ["SEO technique", ["seo technique", "technical seo"]],
+      ["Données structurées (Schema.org)", ["schema.org", "donnees structurees", "structured data"]], ["Core Web Vitals", ["core web vitals"]],
+      ["Semrush · Ahrefs", ["semrush", "ahrefs"]], ["Google Tag Manager", ["tag manager", "gtm"]], ["Stratégie de contenu", ["strategie de contenu", "content strategy"]],
+      ["Stratégie digitale", ["strategie digitale", "digital strategy", "strategie marketing"]], ["A/B testing", ["a/b test", "ab testing"]],
+      ["LinkedIn Ads", ["linkedin ads"]], ["HubSpot", ["hubspot"]], ["Marketing automation", ["marketing automation"]],
+      ["Pipeline commercial", ["pipeline"]], ["LinkedIn Sales Navigator", ["sales navigator"]], ["Reporting · KPI", ["reporting", "kpi", "tableau de bord", "dashboard"]],
+      ["Gestion des risques", ["gestion des risques", "risk management"]], ["MS Project", ["ms project", "microsoft project"]],
+      ["Cahier des charges", ["cahier des charges", "specifications"]], ["Conduite du changement", ["conduite du changement", "change management"]],
+      ["Cartographie des processus", ["cartographie des processus", "process mapping", "bpmn"]], ["PowerPoint", ["powerpoint"]],
+      ["Fiche technique", ["fiche technique", "tech pack"]], ["Gradation", ["gradation", "grading"]], ["Sourcing", ["sourcing"]],
+      ["AMDEC", ["amdec", "fmea"]], ["5S · Kaizen", ["5s", "kaizen"]], ["Audit qualité", ["audit qualite", "quality audit"]],
+      ["AutoCAD", ["autocad"]], ["Pandas", ["pandas"]], ["Agents IA", ["agents ia", "ai agents", "agent ia"]], ["RAG", ["rag"]],
       ["Permis B", ["permis b", "permis de conduire", "driving licence", "driving license"]]
     ],
     tags: {
