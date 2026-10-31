@@ -68,7 +68,10 @@ le site et le CV se mettent à jour ensemble. Toujours changer `updated` (date a
   (depuis 2010, hors stages). C'est une estimation affichée comme telle, jamais une garantie.
   `CV_GENERATOR.expected` propose aussi, par thème dominant (≥ 50 % du plus fort), les compétences souvent
   attendues que l'annonce ne cite pas ; elles comptent pour moitié dans la note. Sans texte d'annonce, la note
-  est plafonnée à 70. Le générateur ne cherche rien sur le web.
+  est plafonnée à 70. Le bouton « Chercher plus de compétences adéquates » montre 8 compétences voisines de plus
+  à chaque clic (`CV_GENERATOR.more` des thèmes dominants, puis tous les thèmes repérés, puis ceux du profil de départ),
+  avec « Je l'ai » ; elles ne changent pas la note. Tout libellé de `expected` ou `more` doit exister dans
+  `requirements`. Le générateur ne cherche rien sur le web.
 - Historique du générateur : `localStorage` clé `og-cv-history` (100 entrées max : poste, annonce, profil,
   langue, compétences ajoutées, réglages, note, lien), avec réouverture pour modifier, suppression, export et
   import JSON. Il reste dans le navigateur d'Oussama ; l'export sert de sauvegarde ou de transfert.

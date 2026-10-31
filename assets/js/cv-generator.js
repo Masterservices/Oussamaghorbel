@@ -18,7 +18,8 @@
     C.CV_TARGETS[k].highlights.forEach(function (h, i) { POOL.push({ ref: k + "." + i, h: h }); });
   });
 
-  var state = { lang: "fr", toggles: {}, manual: null, scores: {}, extra: [] };
+  var state = { lang: "fr", toggles: {}, manual: null, scores: {}, extra: [], more: 0 };
+  var MORE_STEP = 8;
   function $(id) { return document.getElementById(id); }
   function fr(v) { return typeof v === "string" ? v : (v && (v.fr || v.en)) || ""; }
 
@@ -189,6 +190,25 @@
     });
     return out;
   }
+  /*
+   * « Chercher plus de compétences adéquates » : compétences voisines, par ordre de pertinence :
+   * thèmes dominants (G.more), puis tous les thèmes repérés, puis ceux du profil de départ.
+   * Chaque clic en montre MORE_STEP de plus. Elles ne changent pas la note.
+   */
+  function moreFor(w, shown) {
+    var seen = {}, out = [];
+    shown.forEach(function (r) { seen[r.label] = true; });
+    function add(label) {
+      if (!seen[label] && REQ[label]) { seen[label] = true; out.push({ label: label, status: statusOf(REQ[label]) }); }
+    }
+    var top = Math.max.apply(null, TOPICS.map(function (k) { return w[k]; }));
+    var byWeight = TOPICS.filter(function (k) { return w[k] > 0; }).sort(function (a, b) { return w[b] - w[a]; });
+    byWeight.filter(function (k) { return w[k] >= top * 0.5; }).forEach(function (k) { (G.more[k] || []).forEach(add); });
+    byWeight.forEach(function (k) { (G.expected[k] || []).concat(G.more[k] || []).forEach(add); });
+    var base = chosenBase() != null ? chosenBase() : autoBase(w);
+    (G.bases[base] || []).forEach(function (k) { (G.expected[k] || []).concat(G.more[k] || []).forEach(add); });
+    return out;
+  }
   function yearsAsked(ad) {
     var m, best = 0, re = /(\d{1,2})\s*\+?\s*(?:ans|an|years?|yrs|лет|года|год|سنوات|سنة)/g, t = norm(ad);
     while ((m = re.exec(t))) { var n = +m[1]; if (n > best && n <= 30) best = n; }
@@ -237,8 +257,16 @@
     var expList = $("expected");
     expList.innerHTML = "";
     $("expTitle").hidden = expList.hidden = !exp.length;
-    reqs.concat(exp).forEach(function (r, idx) {
-      var target = idx < reqs.length ? list : expList;
+    var pool = moreFor(w, reqs.concat(exp));
+    var more = pool.slice(0, state.more * MORE_STEP);
+    var moreList = $("moreSkills");
+    moreList.innerHTML = "";
+    $("moreTitle").hidden = moreList.hidden = !more.length;
+    $("findMore").hidden = pool.length <= more.length;
+    $("findMore").textContent = state.more ? "Chercher encore d'autres compétences" : "Chercher plus de compétences adéquates";
+    $("moreNote").hidden = !state.more || pool.length > more.length;
+    reqs.concat(exp, more).forEach(function (r, idx) {
+      var target = idx < reqs.length ? list : idx < reqs.length + exp.length ? expList : moreList;
       var mine = state.extra.indexOf(r.label) !== -1;
       var li = document.createElement("li");
       var mark = document.createElement("span");
@@ -262,7 +290,7 @@
       li.appendChild(mark); li.appendChild(name); li.appendChild(right);
       target.appendChild(li);
     });
-    state.extra.filter(function (x) { return !reqs.concat(exp).some(function (r) { return r.label === x; }); }).forEach(function (x) {
+    state.extra.filter(function (x) { return !reqs.concat(exp, more).some(function (r) { return r.label === x; }); }).forEach(function (x) {
       var li = document.createElement("li");
       var a = document.createElement("span"); a.className = "ok"; a.textContent = "✓";
       var b = document.createElement("span"); b.textContent = x;
@@ -425,8 +453,9 @@
     refresh();
   }
 
-  $("post").addEventListener("input", function () { state.manual = null; state.toggles = {}; update(); });
-  $("ad").addEventListener("input", function () { state.manual = null; state.toggles = {}; update(); });
+  $("post").addEventListener("input", function () { state.manual = null; state.toggles = {}; state.more = 0; update(); });
+  $("ad").addEventListener("input", function () { state.manual = null; state.toggles = {}; state.more = 0; update(); });
+  $("findMore").addEventListener("click", function () { state.more++; refresh(); });
   $("base").addEventListener("change", function () { state.manual = null; refresh(); });
   function addTyped() {
     var v = $("newSkill").value.trim().slice(0, 40);
@@ -474,7 +503,7 @@
   function snapshot() {
     return {
       post: $("post").value, ad: $("ad").value, base: $("base").value, lang: state.lang,
-      extra: state.extra.slice(), manual: state.manual, toggles: state.toggles,
+      extra: state.extra.slice(), more: state.more, manual: state.manual, toggles: state.toggles,
       score: $("fit").hidden ? null : +$("scoreN").textContent, link: $("link").value
     };
   }
@@ -485,6 +514,7 @@
     state.lang = e.lang || "fr";
     document.querySelectorAll("[data-plang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-plang") === state.lang)); });
     state.extra = (e.extra || []).slice();
+    state.more = e.more || 0;
     state.manual = e.manual || null;
     state.toggles = e.toggles || {};
     state.current = e.id;
@@ -540,7 +570,7 @@
   });
   $("newOne").addEventListener("click", function () {
     $("post").value = ""; $("ad").value = ""; $("base").value = "auto";
-    state.extra = []; state.manual = null; state.toggles = {}; state.current = null;
+    state.extra = []; state.more = 0; state.manual = null; state.toggles = {}; state.current = null;
     note("");
     update();
     renderHist();

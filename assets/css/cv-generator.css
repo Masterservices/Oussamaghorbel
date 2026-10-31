@@ -91,3 +91,5 @@ legend { margin-bottom: 4px; font-size: .64rem; font-weight: 600; letter-spacing
   .panel { border-inline-end: 0; border-bottom: 1px solid var(--line); overflow: visible; }
   .preview iframe { height: 80vh; }
 }
+.findmore { justify-self: start; margin-top: 2px; }
+.findmore[hidden], .reqs[hidden], .label[hidden] { display: none; }
