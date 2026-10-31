@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://oussamaghorbel.vercel.app/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oussamaghorbel.vercel.app/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oussamaghorbel.vercel.app/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oussamaghorbel.vercel.app/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://oussamaghorbel.vercel.app/?lang=ru"/>
+  </url>
+  <url>
+    <loc>https://oussamaghorbel.vercel.app/cv/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oussamaghorbel.vercel.app/cv/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oussamaghorbel.vercel.app/cv/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oussamaghorbel.vercel.app/cv/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://oussamaghorbel.vercel.app/cv/?lang=ru"/>
+  </url>
+</urlset>

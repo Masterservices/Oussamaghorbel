@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oussamaghorbel.vercel.app/sitemap.xml

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Générateur de CV — Oussama Ghorbel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0e0f14">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/cv-generator.css">
+</head>
+<!-- Outil personnel : non lié depuis le site, non indexé. Voir assets/js/cv-generator.js. -->
+<body>
+  <header class="gbar">
+    <a class="gbar__back" href="../../index.html">← Portfolio</a>
+    <p class="gbar__title">Générateur de CV</p>
+  </header>
+
+  <main class="gen">
+    <form class="panel" id="form" autocomplete="off" onsubmit="return false">
+      <div class="field">
+        <label for="post">Intitulé du poste</label>
+        <input id="post" type="text" maxlength="120" placeholder="ex. Développeur web React, Chargé SEO, Chef de projet textile">
+        <p class="hint">Il s'affiche sur le CV comme poste visé.</p>
+      </div>
+
+      <div class="field">
+        <label for="ad">Texte de l'annonce <span>(facultatif)</span></label>
+        <textarea id="ad" rows="7" placeholder="Colle ici l'offre d'emploi : le générateur repère les compétences demandées (français, anglais, arabe ou russe)."></textarea>
+      </div>
+
+      <div class="field">
+        <p class="label">Thèmes repérés</p>
+        <div class="gchips" id="topics"></div>
+        <p class="hint">Touche un thème pour l'ajouter ou le retirer.</p>
+      </div>
+
+      <div class="field" id="fit" hidden>
+        <p class="label">Adéquation au poste</p>
+        <div class="score" id="score">
+          <p class="score__n"><span id="scoreN">0</span><small>/100</small></p>
+          <div>
+            <p class="score__verdict" id="scoreVerdict"></p>
+            <p class="hint" id="scoreDetail"></p>
+          </div>
+        </div>
+        <p class="label">Ce que demande l'annonce</p>
+        <ul class="reqs" id="reqs"></ul>
+        <div class="addskill">
+          <input id="newSkill" type="text" maxlength="40" placeholder="Ajouter une compétence que tu as">
+          <button type="button" class="gbtn gbtn--ghost" id="addSkill">Ajouter</button>
+        </div>
+        <p class="hint">Coche « Je l'ai » pour une compétence que ton CV ne mentionne pas encore : elle s'ajoute au CV généré, dans « Autres compétences ». La note est une estimation calculée à partir des mots de l'annonce, pas une garantie.</p>
+      </div>
+
+      <div class="field">
+        <label for="base">Profil de départ (titre et résumé)</label>
+        <select id="base">
+          <option value="auto" id="baseAuto">Automatique</option>
+          <option value="general">CV général</option>
+          <option value="seo">SEO & marketing digital</option>
+          <option value="business-developer">Business developer</option>
+          <option value="project-manager">Chef de projet</option>
+          <option value="textile-engineer">Ingénieur textile</option>
+          <option value="developer">Développeur web & applications</option>
+        </select>
+      </div>
+
+      <details class="adjust">
+        <summary>Ajuster le contenu</summary>
+        <p class="hint" id="manualNote" hidden>Sélection modifiée à la main. <button type="button" class="linkish" id="reset">Revenir au choix automatique</button></p>
+        <fieldset><legend>Expériences détaillées</legend><div id="listXp"></div></fieldset>
+        <fieldset><legend>Projets</legend><div id="listPj"></div></fieldset>
+        <fieldset><legend>Compétences</legend><div id="listSk"></div></fieldset>
+        <fieldset><legend>Atouts (4 au maximum)</legend><div id="listHl"></div></fieldset>
+        <fieldset><legend>Ambitions</legend><div id="listVi"></div></fieldset>
+      </details>
+
+      <div class="field">
+        <p class="label">Langue du CV</p>
+        <div class="gchips" role="group" aria-label="Langue du CV">
+          <button type="button" class="gchip" data-plang="fr" aria-pressed="true">Français</button>
+          <button type="button" class="gchip" data-plang="en" aria-pressed="false">English</button>
+          <button type="button" class="gchip" data-plang="ar" aria-pressed="false" lang="ar">العربية</button>
+          <button type="button" class="gchip" data-plang="ru" aria-pressed="false" lang="ru">Русский</button>
+        </div>
+      </div>
+
+      <div class="field share">
+        <label for="link">Lien à envoyer</label>
+        <input id="link" type="text" readonly>
+        <div class="actions">
+          <button type="button" class="gbtn" id="copy">Copier le lien</button>
+          <a class="gbtn gbtn--ghost" id="open" href="../" target="_blank" rel="noopener">Ouvrir le CV</a>
+          <a class="gbtn gbtn--ghost" id="pdf" href="../?print=1" target="_blank" rel="noopener">Enregistrer en PDF</a>
+        </div>
+        <p class="hint">Le lien garde la langue choisie ; le recruteur peut en changer sur le CV.</p>
+      </div>
+
+      <div class="field">
+        <p class="label">CV déjà prêts</p>
+        <div class="ready" id="ready"></div>
+      </div>
+    </form>
+
+    <section class="preview" aria-label="Aperçu du CV">
+      <iframe id="preview" title="Aperçu du CV généré" src="../"></iframe>
+    </section>
+  </main>
+
+  <script src="../../assets/js/i18n.js" defer></script>
+  <script src="../../assets/js/content.js" defer></script>
+  <script src="../../assets/js/cv-generator.js" defer></script>
+</body>
+</html>
