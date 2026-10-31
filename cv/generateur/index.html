@@ -49,6 +49,8 @@
         </div>
         <p class="label">Ce que demande l'annonce</p>
         <ul class="reqs" id="reqs"></ul>
+        <p class="label" id="expTitle">Souvent attendu pour ce type de poste</p>
+        <ul class="reqs" id="expected"></ul>
         <div class="addskill">
           <input id="newSkill" type="text" maxlength="40" placeholder="Ajouter une compétence que tu as">
           <button type="button" class="gbtn gbtn--ghost" id="addSkill">Ajouter</button>
@@ -98,6 +100,22 @@
           <a class="gbtn gbtn--ghost" id="pdf" href="../?print=1" target="_blank" rel="noopener">Enregistrer en PDF</a>
         </div>
         <p class="hint">Le lien garde la langue choisie ; le recruteur peut en changer sur le CV.</p>
+      </div>
+
+      <div class="field">
+        <p class="label">Historique</p>
+        <div class="actions">
+          <button type="button" class="gbtn" id="save">Enregistrer</button>
+          <button type="button" class="gbtn gbtn--ghost" id="newOne">Nouveau CV</button>
+        </div>
+        <p class="hint" id="saveNote"></p>
+        <ul class="hist" id="hist"></ul>
+        <div class="actions">
+          <button type="button" class="gbtn gbtn--ghost" id="export">Exporter (fichier)</button>
+          <label class="gbtn gbtn--ghost" for="import">Importer</label>
+          <input type="file" id="import" accept="application/json,.json" hidden>
+        </div>
+        <p class="hint">L'historique est gardé dans ce navigateur. Exporte-le pour en garder une copie ou le retrouver sur un autre appareil.</p>
       </div>
 
       <div class="field">

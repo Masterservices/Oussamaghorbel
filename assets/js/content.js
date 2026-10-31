@@ -805,6 +805,22 @@ window.SITE_CONTENT = {
     },
     // Profil de départ (titre court, résumé) le plus proche des thèmes repérés
     bases: { "seo": ["seo", "marketing"], "business-developer": ["business", "consulting"], "project-manager": ["project", "consulting", "quality"], "textile-engineer": ["textile", "quality", "engineering"], "developer": ["web", "data", "erp"] },
+    // Compétences souvent attendues pour chaque thème, proposées même si l'annonce ne les cite pas
+    // (libellés pris dans requirements ci-dessous).
+    expected: {
+      web: ["Git", "API REST", "TypeScript", "SQL", "UX · UI"],
+      seo: ["Google Search Console", "Google Analytics", "Google Ads", "Rédaction de contenu", "Netlinking", "WordPress"],
+      marketing: ["Google Ads", "Facebook / Meta Ads", "Réseaux sociaux", "E-mailing", "Canva", "Google Analytics"],
+      business: ["Prospection", "Négociation", "CRM", "B2B", "Grands comptes"],
+      project: ["Gestion de projet", "Agile · Scrum", "Jira", "Budget", "Management d'équipe"],
+      consulting: ["Gestion de projet", "Business plan", "Excel"],
+      erp: ["ERP", "Odoo", "SAP", "CRM", "Excel"],
+      textile: ["Patronage", "Confection", "Lectra", "CLO 3D", "Contrôle qualité"],
+      quality: ["Contrôle qualité", "ISO 9001", "Lean", "Six Sigma"],
+      engineering: ["Excel", "Méthodes · industrialisation"],
+      data: ["Excel", "Python", "SQL", "Power BI", "Statistiques"],
+      ai: ["IA générative", "Prompt engineering", "Automatisation (n8n, Zapier…)"]
+    },
     /*
      * Exigences reconnues dans une annonce. Le générateur cherche ces mots (sans accents) dans
      * l'annonce, puis dans le CV pour dire si la compétence y figure déjà. lang : code de LANGUAGES.

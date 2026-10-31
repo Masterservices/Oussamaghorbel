@@ -66,6 +66,12 @@ le site et le CV se mettent à jour ensemble. Toujours changer `updated` (date a
   « Autres compétences », champ `x` du lien, 12 au plus) et calcule une note /100 : 60 % compétences couvertes,
   30 % thèmes de l'annonce présents dans les expériences retenues, 10 % années d'expérience demandées
   (depuis 2010, hors stages). C'est une estimation affichée comme telle, jamais une garantie.
+  `CV_GENERATOR.expected` propose aussi, par thème dominant (≥ 50 % du plus fort), les compétences souvent
+  attendues que l'annonce ne cite pas ; elles comptent pour moitié dans la note. Sans texte d'annonce, la note
+  est plafonnée à 70. Le générateur ne cherche rien sur le web.
+- Historique du générateur : `localStorage` clé `og-cv-history` (100 entrées max : poste, annonce, profil,
+  langue, compétences ajoutées, réglages, note, lien), avec réouverture pour modifier, suppression, export et
+  import JSON. Il reste dans le navigateur d'Oussama ; l'export sert de sauvegarde ou de transfert.
 - RusStudy : blog de plus de 300 pages indexées par Google (confirmé par Oussama).
 
 ## Traductions

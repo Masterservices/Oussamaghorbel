@@ -161,20 +161,33 @@
     }
     return text.indexOf(w) !== -1;
   }
+  var REQ = {};
+  G.requirements.forEach(function (r) { REQ[r[0]] = r; });
+  // ok : déjà dans le CV ; part : langue en cours d'apprentissage ; no : absente du CV
+  function statusOf(r) {
+    if (r[2]) {
+      var s = LANG_SCORE[r[2]] || 0;
+      return s >= 4 ? "ok" : s > 0 ? "part" : "no";
+    }
+    return r[1].concat([r[0]]).some(function (p) { return has(PROFILE_TEXT, p); }) ? "ok" : "no";
+  }
   function requirements(post, ad) {
     var text = norm(post + " \n " + ad);
     return G.requirements.filter(function (r) {
       return r[1].some(function (p) { return has(text, p); });
-    }).map(function (r) {
-      var status;
-      if (r[2]) {
-        var s = LANG_SCORE[r[2]] || 0;
-        status = s >= 4 ? "ok" : s > 0 ? "part" : "no";
-      } else {
-        status = r[1].concat([r[0]]).some(function (p) { return has(PROFILE_TEXT, p); }) ? "ok" : "no";
-      }
-      return { label: r[0], status: status };
+    }).map(function (r) { return { label: r[0], status: statusOf(r) }; });
+  }
+  // Compétences souvent attendues pour les thèmes repérés, que l'annonce ne cite pas
+  function expectedFor(w, reqs) {
+    var seen = {}, out = [];
+    reqs.forEach(function (r) { seen[r.label] = true; });
+    var top = Math.max.apply(null, TOPICS.map(function (k) { return w[k]; }));
+    TOPICS.filter(function (k) { return w[k] > 0 && w[k] >= top * 0.5; }).sort(function (a, b) { return w[b] - w[a]; }).forEach(function (k) {
+      (G.expected[k] || []).forEach(function (label) {
+        if (!seen[label] && REQ[label] && out.length < 8) { seen[label] = true; out.push({ label: label, status: statusOf(REQ[label]) }); }
+      });
     });
+    return out;
   }
   function yearsAsked(ad) {
     var m, best = 0, re = /(\d{1,2})\s*\+?\s*(?:ans|an|years?|yrs|лет|года|год|سنوات|سنة)/g, t = norm(ad);
@@ -182,7 +195,7 @@
     return best;
   }
 
-  function evaluate(reqs, cfg, w) {
+  function evaluate(reqs, exp, cfg, w) {
     var total = TOPICS.reduce(function (s, k) { return s + w[k]; }, 0);
     var tags = {};
     (cfg ? cfg.k : []).forEach(function (id) { (G.tags[id] || []).forEach(function (t) { tags[t] = true; }); });
@@ -192,11 +205,22 @@
       if (r.status === "ok" || state.extra.indexOf(r.label) !== -1) got += 1;
       else if (r.status === "part") got += 0.5;
     });
-    var cover = reqs.length ? got / reqs.length : 0;
+    // Les compétences souvent attendues (non citées par l'annonce) comptent pour moitié.
+    var gotExp = 0;
+    exp.forEach(function (r) {
+      if (r.status === "ok" || state.extra.indexOf(r.label) !== -1) gotExp += 1;
+      else if (r.status === "part") gotExp += 0.5;
+    });
+    var weight = reqs.length + exp.length * 0.5;
+    var cover = weight ? (got + gotExp * 0.5) / weight : 0;
     var asked = yearsAsked($("ad").value), mine = new Date().getFullYear() - SINCE;
-    var exp = asked ? Math.min(1, mine / asked) : 1;
-    var score = reqs.length ? 0.6 * cover + 0.3 * aligned + 0.1 * exp : 0.8 * aligned + 0.2 * exp;
-    return { score: Math.round(score * 100), got: got, n: reqs.length, aligned: aligned, asked: asked, mine: mine };
+    var years = asked ? Math.min(1, mine / asked) : 1;
+    var score = weight ? 0.6 * cover + 0.3 * aligned + 0.1 * years : 0.8 * aligned + 0.2 * years;
+    score = Math.round(score * 100);
+    // Sans le texte de l'annonce, la note reste prudente.
+    var capped = !reqs.length && score > 70;
+    if (capped) score = 70;
+    return { score: score, got: got, n: reqs.length, gotExp: gotExp, nExp: exp.length, aligned: aligned, asked: asked, mine: mine, capped: capped };
   }
 
   function renderFit(cfg) {
@@ -209,7 +233,12 @@
 
     var list = $("reqs");
     list.innerHTML = "";
-    reqs.forEach(function (r) {
+    var exp = expectedFor(w, reqs);
+    var expList = $("expected");
+    expList.innerHTML = "";
+    $("expTitle").hidden = expList.hidden = !exp.length;
+    reqs.concat(exp).forEach(function (r, idx) {
+      var target = idx < reqs.length ? list : expList;
       var mine = state.extra.indexOf(r.label) !== -1;
       var li = document.createElement("li");
       var mark = document.createElement("span");
@@ -231,9 +260,9 @@
         right.appendChild(lab);
       }
       li.appendChild(mark); li.appendChild(name); li.appendChild(right);
-      list.appendChild(li);
+      target.appendChild(li);
     });
-    state.extra.filter(function (x) { return !reqs.some(function (r) { return r.label === x; }); }).forEach(function (x) {
+    state.extra.filter(function (x) { return !reqs.concat(exp).some(function (r) { return r.label === x; }); }).forEach(function (x) {
       var li = document.createElement("li");
       var a = document.createElement("span"); a.className = "ok"; a.textContent = "✓";
       var b = document.createElement("span"); b.textContent = x;
@@ -248,7 +277,7 @@
       list.appendChild(none);
     }
 
-    var e = evaluate(reqs, cfg, w);
+    var e = evaluate(reqs, exp, cfg, w);
     var band = e.score >= 75 ? ["high", "Très bonnes chances : profil très adapté"] :
       e.score >= 55 ? ["mid", "Bonnes chances : profil adapté, quelques points à renforcer"] :
       e.score >= 35 ? ["mid", "Chances moyennes : des écarts importants à combler"] :
@@ -258,6 +287,8 @@
     $("scoreVerdict").textContent = band[1];
     var bits = [];
     if (e.n) bits.push("Compétences demandées : " + String(e.got).replace(".", ",") + " / " + e.n + " couvertes");
+    if (e.nExp) bits.push("Souvent attendues : " + String(e.gotExp).replace(".", ",") + " / " + e.nExp);
+    if (e.capped) bits.push("Colle le texte de l'annonce pour une note plus fiable");
     bits.push("Thèmes de l'annonce couverts par tes expériences : " + Math.round(e.aligned * 100) + " %");
     if (e.asked) bits.push("Expérience demandée : " + e.asked + " ans (toi : " + e.mine + " ans)");
     $("scoreDetail").textContent = bits.join(" · ");
@@ -433,5 +464,116 @@
     ready.appendChild(a);
   });
 
+  /* ---------- Historique (gardé dans ce navigateur, exportable) ---------- */
+  var HKEY = "og-cv-history";
+  state.current = null;
+  function loadHist() { try { return JSON.parse(localStorage.getItem(HKEY)) || []; } catch (e) { return []; } }
+  function storeHist(h) { try { localStorage.setItem(HKEY, JSON.stringify(h)); return true; } catch (e) { return false; } }
+  function note(text) { $("saveNote").textContent = text; }
+
+  function snapshot() {
+    return {
+      post: $("post").value, ad: $("ad").value, base: $("base").value, lang: state.lang,
+      extra: state.extra.slice(), manual: state.manual, toggles: state.toggles,
+      score: $("fit").hidden ? null : +$("scoreN").textContent, link: $("link").value
+    };
+  }
+  function restore(e) {
+    $("post").value = e.post || "";
+    $("ad").value = e.ad || "";
+    $("base").value = e.base || "auto";
+    state.lang = e.lang || "fr";
+    document.querySelectorAll("[data-plang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-plang") === state.lang)); });
+    state.extra = (e.extra || []).slice();
+    state.manual = e.manual || null;
+    state.toggles = e.toggles || {};
+    state.current = e.id;
+    state.scores = detect($("post").value, $("ad").value);
+    chipList();
+    refresh();
+    renderHist();
+    window.scrollTo(0, 0);
+    $("form").scrollTop = 0;
+  }
+  function renderHist() {
+    var box = $("hist");
+    box.innerHTML = "";
+    loadHist().forEach(function (e) {
+      var li = document.createElement("li");
+      if (e.id === state.current) li.className = "is-current";
+      var top = document.createElement("div"); top.className = "hist__top";
+      var post = document.createElement("span"); post.className = "hist__post"; post.textContent = e.post || "Sans intitulé";
+      var sc = document.createElement("span"); sc.className = "hist__score"; sc.textContent = e.score != null ? e.score + "/100" : "";
+      top.appendChild(post); top.appendChild(sc);
+      var meta = document.createElement("span"); meta.className = "hist__meta";
+      meta.textContent = new Date(e.date).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" }) + (e.extra && e.extra.length ? " · " + e.extra.length + " compétence(s) ajoutée(s)" : "");
+      var btns = document.createElement("div"); btns.className = "hist__btns";
+      [["Ouvrir et modifier", function () { restore(e); note("CV « " + (e.post || "sans intitulé") + " » rouvert : modifie-le puis « Enregistrer » pour mettre à jour."); }],
+       ["Copier le lien", function () { if (navigator.clipboard) navigator.clipboard.writeText(e.link).then(function () { note("Lien copié."); }, function () { note(e.link); }); else note(e.link); }],
+       ["Supprimer", function () {
+         if (!window.confirm("Supprimer « " + (e.post || "sans intitulé") + " » de l'historique ?")) return;
+         storeHist(loadHist().filter(function (x) { return x.id !== e.id; }));
+         if (state.current === e.id) state.current = null;
+         renderHist();
+       }]].forEach(function (b) {
+        var btn = document.createElement("button"); btn.type = "button"; btn.className = "linkish"; btn.textContent = b[0];
+        btn.addEventListener("click", b[1]); btns.appendChild(btn);
+      });
+      li.appendChild(top); li.appendChild(meta); li.appendChild(btns);
+      box.appendChild(li);
+    });
+  }
+
+  $("save").addEventListener("click", function () {
+    var h = loadHist();
+    var entry = snapshot();
+    entry.id = state.current || Date.now().toString(36);
+    entry.date = new Date().toISOString();
+    var at = h.findIndex(function (x) { return x.id === entry.id; });
+    if (at !== -1) h.splice(at, 1);
+    h.unshift(entry);
+    if (storeHist(h.slice(0, 100))) {
+      note(at !== -1 ? "Mis à jour dans l'historique." : "Enregistré dans l'historique.");
+      state.current = entry.id;
+    } else note("Impossible d'enregistrer dans ce navigateur (navigation privée ?). Utilise « Exporter ».");
+    renderHist();
+  });
+  $("newOne").addEventListener("click", function () {
+    $("post").value = ""; $("ad").value = ""; $("base").value = "auto";
+    state.extra = []; state.manual = null; state.toggles = {}; state.current = null;
+    note("");
+    update();
+    renderHist();
+  });
+  $("export").addEventListener("click", function () {
+    var blob = new Blob([JSON.stringify(loadHist(), null, 2)], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "historique-cv-" + new Date().toISOString().slice(0, 10) + ".json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+  $("import").addEventListener("change", function () {
+    var f = this.files && this.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var incoming = JSON.parse(r.result);
+        if (!Array.isArray(incoming)) throw new Error("format");
+        var h = loadHist(), ids = {};
+        h.forEach(function (x) { ids[x.id] = true; });
+        incoming.forEach(function (x) { if (x && x.id && !ids[x.id]) h.push(x); });
+        h.sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
+        storeHist(h.slice(0, 100));
+        note(incoming.length + " CV importé(s).");
+        renderHist();
+      } catch (e) { note("Ce fichier n'est pas un historique exporté par le générateur."); }
+    };
+    r.readAsText(f);
+    this.value = "";
+  });
+
   update();
+  renderHist();
 })();

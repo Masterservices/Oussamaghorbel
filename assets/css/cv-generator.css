@@ -70,6 +70,14 @@ legend { margin-bottom: 4px; font-size: .64rem; font-weight: 600; letter-spacing
 .reqs label { display: inline-flex; gap: 6px; align-items: center; font-size: .72rem; letter-spacing: 0; text-transform: none; color: var(--text); font-weight: 500; cursor: pointer; }
 .reqs input { accent-color: var(--gold); margin: 0; }
 .addskill { display: grid; grid-template-columns: 1fr auto; gap: 6px; }
+.hist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.hist li { display: grid; gap: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--ink-2); }
+.hist li.is-current { border-color: var(--gold); }
+.hist__top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.hist__post { font-weight: 600; overflow-wrap: anywhere; }
+.hist__score { font: 500 1.3rem/1 var(--serif); color: var(--gold-2); white-space: nowrap; }
+.hist__meta { font-size: .72rem; color: var(--muted); }
+.hist__btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .ready { display: flex; flex-wrap: wrap; gap: 6px; }
 .ready a { padding: 6px 10px; border: 1px solid var(--line); border-radius: 3px; font-size: .76rem; text-decoration: none; color: var(--muted); }
 .ready a:hover { color: var(--gold-2); border-color: var(--gold); }
