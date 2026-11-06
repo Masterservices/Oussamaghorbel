@@ -15,3 +15,4 @@ Format :
 - Niveau : `c` courant (demandé dans la plupart des offres du thème), `f` fréquent, `s` spécialisé.
 - Catégorie : `o` outil, `m` méthode, `n` norme ou certification, `t` savoir-faire métier,
   `x` compétence transverse, `l` langue.
+<!-- test liaison Vercel, branche jetable -->
