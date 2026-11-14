@@ -41,6 +41,7 @@
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
     lenis.stop();
+    window.__lenis = lenis;
 
     document.addEventListener("click", function (e) {
       var a = e.target.closest('a[href^="#"]');
@@ -75,7 +76,7 @@
   var countEl = document.getElementById("loaderCount");
   var heroVideo = document.getElementById("heroVideo");
 
-  gsap.set(".hero__name .char > span", { yPercent: 115 });
+  gsap.set(".hero__name .char > span", { yPercent: 115, rotationX: -75, transformPerspective: 600, transformOrigin: "50% 100%" });
   gsap.set(".hero__in", { y: 30, opacity: 0 });
   gsap.set(".hero__media", { scale: 1.18 });
   gsap.set(".hero__veil", { opacity: 0.4 });
@@ -111,7 +112,7 @@
       .to(".hero__media", { scale: 1, duration: 2.2, ease: "expo.out" }, "-=0.6")
       .to(".hero__veil", { opacity: 1, duration: 1.6, ease: "power2.out" }, "<")
       .to(".hero__bar", { height: function () { return getComputedStyle(document.getElementById("hero")).getPropertyValue("--bar").trim() || "9vh"; }, duration: 1.8, ease: "expo.inOut", clearProps: "height" }, "<")
-      .to(".hero__name .char > span", { yPercent: 0, duration: 1.2, stagger: 0.04, ease: "expo.out" }, "<0.1")
+      .to(".hero__name .char > span", { yPercent: 0, rotationX: 0, duration: 1.3, stagger: 0.045, ease: "expo.out" }, "<0.1")
       .to(".hero__in", { y: 0, opacity: 1, duration: 1, stagger: 0.09, ease: "power3.out" }, "<0.35")
       .to(".hero__spark", { opacity: 1, duration: 2, ease: "power2.out" }, "<");
   });
@@ -161,9 +162,85 @@
           onUpdate: function (self) { setRoleProgress(self.progress); }
         }
       });
+
+      // Bande en 3D : écran légèrement courbe au repos ; pendant le défilement, les cadres
+      // pivotent avec la vitesse, chacun avec un peu de retard sur le précédent.
+      var intro = { v: 0 }, lastX = 0, vel = 0, live = false;
+      var watch = ScrollTrigger.create({
+        trigger: ".roles", start: "top bottom", end: "bottom top",
+        onToggle: function (self) { live = self.isActive; }
+      });
+      live = watch.isActive;
+      var enter = gsap.to(intro, { v: 1, duration: 1.8, ease: "expo.out", scrollTrigger: { trigger: ".roles", start: "top 70%" } });
+      function bend() {
+        if (!live) return;
+        var half = window.innerWidth / 2, x = +gsap.getProperty(rolesTrack, "x") || 0;
+        vel += ((x - lastX) - vel) * .2;
+        lastX = x;
+        var swing = Math.max(-16, Math.min(16, vel * .55));
+        Array.prototype.forEach.call(rolesTrack.children, function (card, i) {
+          var n = Math.max(-1.5, Math.min(1.5, (card.offsetLeft + card.offsetWidth / 2 + x - half) / half));
+          card._sw = (card._sw || 0) + (swing - (card._sw || 0)) * Math.max(.05, .2 - i * .022);
+          var late = (1 - intro.v) * (1 + i * .35);
+          gsap.set(card, {
+            rotationY: n * -7 + card._sw + late * -38,
+            z: n * n * 46 - late * 420,
+            opacity: Math.max(0, 1 - late * .8)
+          });
+        });
+      }
+      gsap.ticker.add(bend);
+      return function () {
+        gsap.ticker.remove(bend);
+        watch.kill();
+        enter.kill();
+        gsap.set(rolesTrack.children, { clearProps: "transform,opacity" });
+      };
     });
   }
 
+
+  /* ---------- Domaines : la sculpture de fils change de figure avec le scroll ---------- */
+
+  var fields = document.querySelector(".fields");
+  var fieldItems = fields ? Array.prototype.slice.call(fields.querySelectorAll(".field")) : [];
+  var sculpture = window.Threads && window.Threads.get("fieldsGl");
+  if (fields && fieldItems.length) {
+    var fieldIndex = document.getElementById("fieldsIndex");
+    var fieldActive = -1;
+    var nFields = fieldItems.length;
+    var smooth = function (a, b, x) { x = Math.max(0, Math.min(1, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
+    // Chaque domaine tient l'écran un moment, puis la figure glisse vers la suivante.
+    var setFields = function (p) {
+      var s = Math.min(nFields - 1e-4, p * nFields), i = Math.floor(s), f = s - i;
+      var g = i + (i < nFields - 1 ? smooth(.6, .98, f) : 0);
+      if (sculpture) sculpture.progress(g);
+      var active = Math.round(g);
+      if (active !== fieldActive) {
+        fieldActive = active;
+        fieldItems.forEach(function (n, k) { n.classList.toggle("is-active", k === active); });
+        if (fieldIndex) fieldIndex.textContent = "0" + (active + 1);
+      }
+      fieldItems[active].style.setProperty("--f", active === i ? Math.min(1, f / .6) : 0);
+    };
+    ScrollTrigger.create({
+      trigger: fields, start: "top top", end: "bottom bottom", scrub: true,
+      onUpdate: function (self) { setFields(self.progress); }
+    });
+    // À l'arrivée, le nuage de points se rassemble.
+    ScrollTrigger.create({
+      trigger: fields, start: "top 92%", end: "top 12%", scrub: true,
+      onUpdate: function (self) { if (sculpture) sculpture.intro(self.progress); }
+    });
+    setFields(0);
+    fieldItems.forEach(function (item, k) {
+      item.querySelector("button").addEventListener("click", function () {
+        var top = fields.getBoundingClientRect().top + window.scrollY;
+        var y = top + (k + .25) / nFields * (fields.offsetHeight - window.innerHeight);
+        if (lenis) lenis.scrollTo(y, { duration: 1.4 }); else window.scrollTo(0, y);
+      });
+    });
+  }
 
   /* ---------- Interlude : le grand mot glisse au scroll ---------- */
 
@@ -232,7 +309,7 @@
   /* ---------- Apparitions au scroll ---------- */
 
   // Titres : rideau qui se lève (fonctionne dans toutes les langues, y compris l'arabe).
-  gsap.utils.toArray(".section h2").forEach(function (h) {
+  gsap.utils.toArray(".section h2, .fields h2").forEach(function (h) {
     gsap.fromTo(h, { clipPath: "inset(0 0 100% 0)", y: 40 }, {
       clipPath: "inset(0 0 0% 0)", y: 0, duration: 1.2, ease: "expo.out",
       scrollTrigger: { trigger: h, start: "top 88%" }
@@ -273,9 +350,51 @@
   }
   animateTimelines();
 
+  // Études de cas : l'image se dévoile derrière un rideau, glisse dans son cadre pendant le scroll,
+  // et le texte monte ligne à ligne. Les cartes sont recréées à chaque changement de langue.
+  var caseTriggers = [];
+  function animateCases() {
+    caseTriggers.forEach(function (t) { t.kill(); });
+    caseTriggers = [];
+    gsap.utils.toArray("#cases .case").forEach(function (c) {
+      var media = c.querySelector(".case__media"), img = media.querySelector(":scope > img"), mock = media.querySelector(".mock");
+      var parts = c.querySelectorAll(".case__body > *");
+      var tl = gsap.timeline({ scrollTrigger: { trigger: c, start: "top 80%" } });
+      tl.fromTo(media, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.out", clearProps: "clipPath" }, 0)
+        .fromTo(parts, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: .07, ease: "power3.out", clearProps: "transform,opacity" }, .15);
+      if (mock) tl.fromTo(mock, { scale: 1.18 }, { scale: 1, duration: 1.8, ease: "expo.out", clearProps: "transform" }, 0);
+      caseTriggers.push(tl.scrollTrigger);
+      if (img) {
+        var px = gsap.fromTo(img, { yPercent: -5, scale: 1.14 }, {
+          yPercent: 5, scale: 1.14, ease: "none",
+          scrollTrigger: { trigger: media, start: "top bottom", end: "bottom top", scrub: true }
+        });
+        caseTriggers.push(px.scrollTrigger);
+      }
+    });
+  }
+
+  // Approche : les étapes s'allument l'une après l'autre pendant le scroll.
+  var stepsBox = document.getElementById("steps");
+  if (stepsBox) {
+    ScrollTrigger.create({
+      trigger: stepsBox, start: "top 74%", end: "bottom 44%",
+      onUpdate: function (self) {
+        var items = stepsBox.querySelectorAll(".step");
+        var i = Math.min(items.length - 1, Math.floor(self.progress * items.length));
+        if (i === stepsBox._i) return;
+        stepsBox._i = i;
+        items.forEach(function (n, k) { n.classList.toggle("is-active", k === i); });
+        stepsBox.style.setProperty("--step", i);
+      }
+    });
+  }
+
   // Éléments générés (projets, frise, compétences, galerie) : on les anime à chaque rendu.
+  var rolesIn3d = window.matchMedia("(min-width: 701px)").matches;
   function animateDynamic() {
-    ScrollTrigger.batch(".case:not(.is-in), .project:not(.is-in), .tl:not(.is-in), .skill:not(.is-in), .training li:not(.is-in), .role:not(.is-in), .svc:not(.is-in), .step:not(.is-in), .vis:not(.is-in), .languages__list li:not(.is-in)", {
+    animateCases();
+    ScrollTrigger.batch(".project:not(.is-in), .tl:not(.is-in), .skill:not(.is-in), .training li:not(.is-in), " + (rolesIn3d ? "" : ".role:not(.is-in), ") + ".svc:not(.is-in), .step:not(.is-in), .vis:not(.is-in), .languages__list li:not(.is-in)", {
       start: "top 92%",
       onEnter: function (batch) {
         batch.forEach(function (n) { n.classList.add("is-in"); });
@@ -309,16 +428,18 @@
 
   function bindTilt() {
     if (!finePointer) return;
-    document.querySelectorAll(".project:not(.has-tilt)").forEach(function (card) {
+    document.querySelectorAll(".project:not(.has-tilt), .case__media:not(.has-tilt)").forEach(function (card) {
       card.classList.add("has-tilt");
-      var rx = gsap.quickTo(card, "rotationX", { duration: 0.6, ease: "power3.out" });
-      var ry = gsap.quickTo(card, "rotationY", { duration: 0.6, ease: "power3.out" });
+      var k = card.classList.contains("project") ? 1 : 1.5;
+      gsap.set(card, { transformPerspective: 1100 });
+      var rx = gsap.quickTo(card, "rotationX", { duration: 0.7, ease: "power3.out" });
+      var ry = gsap.quickTo(card, "rotationY", { duration: 0.7, ease: "power3.out" });
       card.addEventListener("pointermove", function (e) {
         var r = card.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width;
         var py = (e.clientY - r.top) / r.height;
-        rx((0.5 - py) * 3);
-        ry((px - 0.5) * 4);
+        rx((0.5 - py) * 3 * k);
+        ry((px - 0.5) * 4 * k);
         card.style.setProperty("--mx", px * 100 + "%");
         card.style.setProperty("--my", py * 100 + "%");
       });

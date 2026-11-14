@@ -19,6 +19,7 @@ bibliothèques sont copiées dans `assets/vendor/` (GSAP, ScrollTrigger, Lenis).
 | `assets/js/i18n.js` | Textes de l'interface en `fr`, `en`, `ar`, `ru`. Toute clé ajoutée doit exister dans les 4 langues. |
 | `assets/js/content.js` | **Source unique du site et du CV** : `PROFILE`, `domains`, `STATUS`, `ROLES`, `CASES`, `PROJECTS`, `METHOD`, `SERVICES`, `VISION`, `EXPERIENCE`, `EDUCATION`, `TRAINING`, `LANGUAGES`, `SKILLS`, date `updated`. |
 | `assets/js/site.js` | Rendu, langue, filtres. Émet `site:render` et `site:filter` sur `document`. |
+| `assets/js/threads.js` | Sculptures de particules en 3D (WebGL brut, ~76 000 points posés sur des fils) : `<canvas data-threads="sculpture">` (section Domaines : sphère armillaire, réseau, étoffe tissée, hyperboloïde, une par domaine, pilotée par le scroll via `Threads.get(id).progress()/intro()`) et `data-threads="field"` (nappe de fils derrière la citation). Réglages CSS `--cx --cy --rx --ry`. Image fixe en mouvement réduit. |
 | `assets/js/gl.js` | Shader WebGL (étoffe de soie animée), sur chaque `<canvas data-silk>` : section Contact et couverture du CV (`data-silk="center"`). |
 | `assets/js/sparkles.js` | Éclats dorés en parallaxe sur l'en-tête vidéo (calque arrière optionnel), traînée d'éclats sous la souris. |
 | `assets/js/video.js` | Vidéo plein écran de l'en-tête (format cinéma) : version mobile sous 700 px, lecture auto sans son, minutage et barre de lecture cliquable, bouton « Regarder avec le son » (repart du début avec le son), pause et son. |
