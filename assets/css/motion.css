@@ -38,13 +38,28 @@
 .has-motion .projects { perspective: 1400px; }
 .has-motion .project { transform-style: preserve-3d; will-change: transform; }
 
-.project::after, .domain::after {
+.project::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
   background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(230, 199, 124, .16), transparent 45%);
   transition: opacity .4s;
 }
-.domain { position: relative; }
-.project:hover::after, .domain:hover::after { opacity: 1; }
+.project:hover::after { opacity: 1; }
+
+/* ---------- Rôles : bande en 3D (motion.js) ---------- */
+@media (min-width: 701px) {
+  .has-motion .roles__viewport { perspective: 1500px; }
+  .has-motion .roles__track { transform-style: preserve-3d; }
+  .has-motion .role { will-change: transform; backface-visibility: hidden; }
+}
+
+/* ---------- Études de cas : cadre incliné, reflet, image qui glisse ---------- */
+.has-motion .case__media > img { transition: none; will-change: transform; }
+.has-motion .case__media { will-change: transform; }
+.case__media::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .5s;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 244, 214, .2), transparent 50%);
+}
+.case__media.has-tilt:hover::after { opacity: 1; }
 
 /* ---------- Galerie : l'image bouge dans son cadre ---------- */
 .gallery button { isolation: isolate; }
